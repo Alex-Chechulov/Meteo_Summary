@@ -202,6 +202,11 @@ private: System::Windows::Forms::TextBox^ Air_temperature_average;
 private: System::Windows::Forms::Label^ label31;
 private: System::Windows::Forms::TextBox^ Min_night_air_temperature;
 private: System::Windows::Forms::Label^ label32;
+private: System::Windows::Forms::TextBox^ Wind_speed_maximum;
+private: System::Windows::Forms::Label^ label33;
+private: System::Windows::Forms::SplitContainer^ splitContainer2;
+private: System::Windows::Forms::Label^ label34;
+private: System::Windows::Forms::TextBox^ Day_rainfall;
 
 
 
@@ -238,8 +243,9 @@ private: System::Windows::Forms::Label^ label32;
 		void InitializeComponent(void)
 		{
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
-			this->Calculation_summary = (gcnew System::Windows::Forms::Button());
+			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
 			this->Summary_text = (gcnew System::Windows::Forms::RichTextBox());
+			this->Calculation_summary = (gcnew System::Windows::Forms::Button());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->Number_station = (gcnew System::Windows::Forms::TextBox());
@@ -320,16 +326,24 @@ private: System::Windows::Forms::Label^ label32;
 			this->Max_day_temperature = (gcnew System::Windows::Forms::TextBox());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->Wind_speed_maximum = (gcnew System::Windows::Forms::TextBox());
+			this->label33 = (gcnew System::Windows::Forms::Label());
+			this->Min_night_air_temperature = (gcnew System::Windows::Forms::TextBox());
+			this->label32 = (gcnew System::Windows::Forms::Label());
 			this->Air_temperature_average = (gcnew System::Windows::Forms::TextBox());
 			this->label31 = (gcnew System::Windows::Forms::Label());
 			this->Soil_temperature = (gcnew System::Windows::Forms::TextBox());
 			this->label30 = (gcnew System::Windows::Forms::Label());
-			this->label32 = (gcnew System::Windows::Forms::Label());
-			this->Min_night_air_temperature = (gcnew System::Windows::Forms::TextBox());
+			this->label34 = (gcnew System::Windows::Forms::Label());
+			this->Day_rainfall = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
 			this->splitContainer1->Panel2->SuspendLayout();
 			this->splitContainer1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->BeginInit();
+			this->splitContainer2->Panel1->SuspendLayout();
+			this->splitContainer2->Panel2->SuspendLayout();
+			this->splitContainer2->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -341,40 +355,60 @@ private: System::Windows::Forms::Label^ label32;
 			// 
 			this->splitContainer1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->splitContainer1->Location = System::Drawing::Point(12, 12);
+			this->splitContainer1->Location = System::Drawing::Point(18, 18);
+			this->splitContainer1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->splitContainer1->Name = L"splitContainer1";
 			// 
 			// splitContainer1.Panel1
 			// 
-			this->splitContainer1->Panel1->Controls->Add(this->Calculation_summary);
-			this->splitContainer1->Panel1->Controls->Add(this->Summary_text);
+			this->splitContainer1->Panel1->Controls->Add(this->splitContainer2);
 			// 
 			// splitContainer1.Panel2
 			// 
 			this->splitContainer1->Panel2->Controls->Add(this->tabControl1);
-			this->splitContainer1->Size = System::Drawing::Size(904, 443);
-			this->splitContainer1->SplitterDistance = 165;
+			this->splitContainer1->Size = System::Drawing::Size(1356, 682);
+			this->splitContainer1->SplitterDistance = 247;
+			this->splitContainer1->SplitterWidth = 6;
 			this->splitContainer1->TabIndex = 50;
+			// 
+			// splitContainer2
+			// 
+			this->splitContainer2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->splitContainer2->Location = System::Drawing::Point(0, 0);
+			this->splitContainer2->Name = L"splitContainer2";
+			this->splitContainer2->Orientation = System::Windows::Forms::Orientation::Horizontal;
+			// 
+			// splitContainer2.Panel1
+			// 
+			this->splitContainer2->Panel1->Controls->Add(this->Summary_text);
+			// 
+			// splitContainer2.Panel2
+			// 
+			this->splitContainer2->Panel2->Controls->Add(this->Calculation_summary);
+			this->splitContainer2->Size = System::Drawing::Size(247, 682);
+			this->splitContainer2->SplitterDistance = 269;
+			this->splitContainer2->TabIndex = 0;
+			// 
+			// Summary_text
+			// 
+			this->Summary_text->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->Summary_text->Location = System::Drawing::Point(0, 0);
+			this->Summary_text->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->Summary_text->Name = L"Summary_text";
+			this->Summary_text->Size = System::Drawing::Size(247, 269);
+			this->Summary_text->TabIndex = 49;
+			this->Summary_text->Text = L"";
 			// 
 			// Calculation_summary
 			// 
-			this->Calculation_summary->Location = System::Drawing::Point(30, 152);
+			this->Calculation_summary->Location = System::Drawing::Point(50, 51);
+			this->Calculation_summary->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Calculation_summary->Name = L"Calculation_summary";
-			this->Calculation_summary->Size = System::Drawing::Size(106, 32);
+			this->Calculation_summary->Size = System::Drawing::Size(159, 49);
 			this->Calculation_summary->TabIndex = 50;
 			this->Calculation_summary->Text = L"Расчёт";
 			this->Calculation_summary->UseVisualStyleBackColor = true;
 			this->Calculation_summary->Click += gcnew System::EventHandler(this, &MyForm::Calculation_summary_Click_1);
-			// 
-			// Summary_text
-			// 
-			this->Summary_text->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->Summary_text->Location = System::Drawing::Point(3, 3);
-			this->Summary_text->Name = L"Summary_text";
-			this->Summary_text->Size = System::Drawing::Size(159, 118);
-			this->Summary_text->TabIndex = 49;
-			this->Summary_text->Text = L"";
 			// 
 			// tabControl1
 			// 
@@ -384,10 +418,11 @@ private: System::Windows::Forms::Label^ label32;
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage4);
-			this->tabControl1->Location = System::Drawing::Point(3, 3);
+			this->tabControl1->Location = System::Drawing::Point(4, 5);
+			this->tabControl1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(718, 426);
+			this->tabControl1->Size = System::Drawing::Size(1072, 655);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPage1
@@ -401,36 +436,40 @@ private: System::Windows::Forms::Label^ label32;
 			this->tabPage1->Controls->Add(this->Time_calculation);
 			this->tabPage1->Controls->Add(this->Data_calculation);
 			this->tabPage1->Controls->Add(this->label1);
-			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Location = System::Drawing::Point(4, 29);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(710, 400);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->tabPage1->Size = System::Drawing::Size(1064, 622);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Раздел 0";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// Number_station
 			// 
-			this->Number_station->Location = System::Drawing::Point(115, 99);
+			this->Number_station->Location = System::Drawing::Point(172, 152);
+			this->Number_station->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Number_station->Name = L"Number_station";
-			this->Number_station->Size = System::Drawing::Size(100, 20);
+			this->Number_station->Size = System::Drawing::Size(148, 26);
 			this->Number_station->TabIndex = 17;
 			this->Number_station->Text = L"001";
 			// 
 			// Number_district
 			// 
-			this->Number_district->Location = System::Drawing::Point(9, 99);
+			this->Number_district->Location = System::Drawing::Point(14, 152);
+			this->Number_district->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Number_district->Name = L"Number_district";
-			this->Number_district->Size = System::Drawing::Size(100, 20);
+			this->Number_district->Size = System::Drawing::Size(148, 26);
 			this->Number_district->TabIndex = 16;
 			this->Number_district->Text = L"01";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(9, 83);
+			this->label3->Location = System::Drawing::Point(14, 128);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(267, 13);
+			this->label3->Size = System::Drawing::Size(392, 20);
 			this->label3->TabIndex = 15;
 			this->label3->Text = L"Номер района(2 знака) и номер станции(3 занака):";
 			// 
@@ -438,9 +477,10 @@ private: System::Windows::Forms::Label^ label32;
 			// 
 			this->Type_speed_dimension->FormattingEnabled = true;
 			this->Type_speed_dimension->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Расчетная оценка", L"Инструментальное измерение" });
-			this->Type_speed_dimension->Location = System::Drawing::Point(70, 59);
+			this->Type_speed_dimension->Location = System::Drawing::Point(105, 91);
+			this->Type_speed_dimension->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Type_speed_dimension->Name = L"Type_speed_dimension";
-			this->Type_speed_dimension->Size = System::Drawing::Size(125, 21);
+			this->Type_speed_dimension->Size = System::Drawing::Size(186, 28);
 			this->Type_speed_dimension->TabIndex = 14;
 			this->Type_speed_dimension->Text = L"Расчетная оценка";
 			// 
@@ -448,18 +488,20 @@ private: System::Windows::Forms::Label^ label32;
 			// 
 			this->Type_speed->FormattingEnabled = true;
 			this->Type_speed->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"м/с", L"узлы" });
-			this->Type_speed->Location = System::Drawing::Point(9, 59);
+			this->Type_speed->Location = System::Drawing::Point(14, 91);
+			this->Type_speed->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Type_speed->Name = L"Type_speed";
-			this->Type_speed->Size = System::Drawing::Size(51, 21);
+			this->Type_speed->Size = System::Drawing::Size(74, 28);
 			this->Type_speed->TabIndex = 13;
 			this->Type_speed->Text = L"м/с";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 43);
+			this->label2->Location = System::Drawing::Point(14, 66);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(186, 13);
+			this->label2->Size = System::Drawing::Size(276, 20);
 			this->label2->TabIndex = 12;
 			this->label2->Text = L"Указатель едениц скорости ветра:";
 			// 
@@ -470,9 +512,10 @@ private: System::Windows::Forms::Label^ label32;
 				L"00", L"01", L"02", L"03", L"04", L"05",
 					L"06", L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23"
 			});
-			this->Time_calculation->Location = System::Drawing::Point(70, 19);
+			this->Time_calculation->Location = System::Drawing::Point(105, 29);
+			this->Time_calculation->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Time_calculation->Name = L"Time_calculation";
-			this->Time_calculation->Size = System::Drawing::Size(42, 21);
+			this->Time_calculation->Size = System::Drawing::Size(61, 28);
 			this->Time_calculation->TabIndex = 11;
 			this->Time_calculation->Text = L"00";
 			// 
@@ -484,18 +527,20 @@ private: System::Windows::Forms::Label^ label32;
 					L"07", L"08", L"09", L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24",
 					L"25", L"26", L"27", L"28", L"29", L"30", L"31"
 			});
-			this->Data_calculation->Location = System::Drawing::Point(9, 19);
+			this->Data_calculation->Location = System::Drawing::Point(14, 29);
+			this->Data_calculation->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Data_calculation->Name = L"Data_calculation";
-			this->Data_calculation->Size = System::Drawing::Size(43, 21);
+			this->Data_calculation->Size = System::Drawing::Size(62, 28);
 			this->Data_calculation->TabIndex = 10;
 			this->Data_calculation->Text = L"01";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(6, 3);
+			this->label1->Location = System::Drawing::Point(9, 5);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(176, 13);
+			this->label1->Size = System::Drawing::Size(262, 20);
 			this->label1->TabIndex = 9;
 			this->label1->Text = L"Дата и срок наблюдения по ВСВ:";
 			// 
@@ -538,10 +583,11 @@ private: System::Windows::Forms::Label^ label32;
 			this->tabPage2->Controls->Add(this->label5);
 			this->tabPage2->Controls->Add(this->Group_6RRRtr);
 			this->tabPage2->Controls->Add(this->label4);
-			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Location = System::Drawing::Point(4, 29);
+			this->tabPage2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(710, 400);
+			this->tabPage2->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->tabPage2->Size = System::Drawing::Size(1064, 622);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Раздел 1";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -557,9 +603,10 @@ private: System::Windows::Forms::Label^ label32;
 					L"Перисто-слоистые  туманообразные 10 баллов", L"Перисто-слоистые  туманообразные не распространяются по небу < 10 баллов", L"Перисто-кучевые",
 					L"Невозможно определить"
 			});
-			this->Cloud_top->Location = System::Drawing::Point(377, 339);
+			this->Cloud_top->Location = System::Drawing::Point(566, 522);
+			this->Cloud_top->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Cloud_top->Name = L"Cloud_top";
-			this->Cloud_top->Size = System::Drawing::Size(316, 21);
+			this->Cloud_top->Size = System::Drawing::Size(472, 28);
 			this->Cloud_top->TabIndex = 78;
 			this->Cloud_top->Text = L"Перистые волокнистые количество облаков не увеличивается";
 			// 
@@ -577,9 +624,10 @@ private: System::Windows::Forms::Label^ label32;
 					L"стыми или слоисто-дождевыми",
 					L"Высококучевые кучевообразные хлопьевидные или башенковидные", L"Высококучевые при хаотическом виде неба", L"Невозможно определить"
 			});
-			this->Clouds_middle_layer->Location = System::Drawing::Point(377, 312);
+			this->Clouds_middle_layer->Location = System::Drawing::Point(566, 480);
+			this->Clouds_middle_layer->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Clouds_middle_layer->Name = L"Clouds_middle_layer";
-			this->Clouds_middle_layer->Size = System::Drawing::Size(316, 21);
+			this->Clouds_middle_layer->Size = System::Drawing::Size(472, 28);
 			this->Clouds_middle_layer->TabIndex = 77;
 			this->Clouds_middle_layer->Text = L"Высокослоистые туманообразные";
 			// 
@@ -591,9 +639,10 @@ private: System::Windows::Forms::Label^ label32;
 					L"Кучево-дождевые лысые", L"Слоисто-кучевые кучевообразные", L"Слоисто-кучевые волнистообразные", L"Слоистые туманообразные или волнистообразные или разорванно-слоистые",
 					L"Слоистые разорванно-дождевые", L"Кучевые и слоисто-кучевые", L"Кучево-дождевые волосатые", L"Невозможно определить"
 			});
-			this->Clouds_basement->Location = System::Drawing::Point(377, 285);
+			this->Clouds_basement->Location = System::Drawing::Point(566, 438);
+			this->Clouds_basement->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Clouds_basement->Name = L"Clouds_basement";
-			this->Clouds_basement->Size = System::Drawing::Size(316, 21);
+			this->Clouds_basement->Size = System::Drawing::Size(472, 28);
 			this->Clouds_basement->TabIndex = 76;
 			this->Clouds_basement->Text = L"Кучевые плоские";
 			// 
@@ -607,18 +656,20 @@ private: System::Windows::Forms::Label^ label32;
 					L"Определить невозможно по другим причинам кроме указанных(кроме указаных ранее) ил"
 					L"и наблюдения не производились"
 			});
-			this->Clouds_exact_amount->Location = System::Drawing::Point(377, 258);
+			this->Clouds_exact_amount->Location = System::Drawing::Point(566, 397);
+			this->Clouds_exact_amount->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Clouds_exact_amount->Name = L"Clouds_exact_amount";
-			this->Clouds_exact_amount->Size = System::Drawing::Size(316, 21);
+			this->Clouds_exact_amount->Size = System::Drawing::Size(472, 28);
 			this->Clouds_exact_amount->TabIndex = 75;
 			this->Clouds_exact_amount->Text = L"0 (облаков нет)";
 			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(374, 242);
+			this->label18->Location = System::Drawing::Point(561, 372);
+			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(309, 13);
+			this->label18->Size = System::Drawing::Size(457, 20);
 			this->label18->TabIndex = 74;
 			this->label18->Text = L"Количество облаков нижнего, среднего и верхнего ярусов:";
 			// 
@@ -634,9 +685,10 @@ private: System::Windows::Forms::Label^ label32;
 					L"79", L"80", L"81", L"82", L"83", L"84", L"85", L"86", L"87", L"88", L"89", L"90", L"91", L"92", L"93", L"94", L"95", L"96",
 					L"97", L"98", L"99"
 			});
-			this->Past_weather->Location = System::Drawing::Point(377, 218);
+			this->Past_weather->Location = System::Drawing::Point(566, 335);
+			this->Past_weather->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Past_weather->Name = L"Past_weather";
-			this->Past_weather->Size = System::Drawing::Size(223, 21);
+			this->Past_weather->Size = System::Drawing::Size(332, 28);
 			this->Past_weather->TabIndex = 73;
 			this->Past_weather->Text = L"00";
 			// 
@@ -652,18 +704,20 @@ private: System::Windows::Forms::Label^ label32;
 					L"78", L"79", L"80", L"81", L"82", L"83", L"84", L"85", L"86", L"87", L"88", L"89", L"90", L"91", L"92", L"93", L"94", L"95",
 					L"96", L"97", L"98", L"99"
 			});
-			this->Current_weather->Location = System::Drawing::Point(377, 191);
+			this->Current_weather->Location = System::Drawing::Point(566, 294);
+			this->Current_weather->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Current_weather->Name = L"Current_weather";
-			this->Current_weather->Size = System::Drawing::Size(223, 21);
+			this->Current_weather->Size = System::Drawing::Size(332, 28);
 			this->Current_weather->TabIndex = 72;
 			this->Current_weather->Text = L"00";
 			// 
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(374, 175);
+			this->label17->Location = System::Drawing::Point(561, 269);
+			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(163, 13);
+			this->label17->Size = System::Drawing::Size(243, 20);
 			this->label17->TabIndex = 71;
 			this->label17->Text = L"Текущая и прошедшая погода:";
 			// 
@@ -674,43 +728,48 @@ private: System::Windows::Forms::Label^ label32;
 				L"6", L"12", L"18", L"24", L"1", L"2",
 					L"3", L"9", L"15"
 			});
-			this->Precipitation_duration->Location = System::Drawing::Point(431, 151);
+			this->Precipitation_duration->Location = System::Drawing::Point(646, 232);
+			this->Precipitation_duration->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Precipitation_duration->Name = L"Precipitation_duration";
-			this->Precipitation_duration->Size = System::Drawing::Size(42, 21);
+			this->Precipitation_duration->Size = System::Drawing::Size(61, 28);
 			this->Precipitation_duration->TabIndex = 70;
 			this->Precipitation_duration->Text = L"6";
 			// 
 			// Rainfall
 			// 
-			this->Rainfall->Location = System::Drawing::Point(377, 151);
+			this->Rainfall->Location = System::Drawing::Point(566, 232);
+			this->Rainfall->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Rainfall->Name = L"Rainfall";
-			this->Rainfall->Size = System::Drawing::Size(48, 20);
+			this->Rainfall->Size = System::Drawing::Size(70, 26);
 			this->Rainfall->TabIndex = 69;
 			this->Rainfall->Text = L"00,1";
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(374, 135);
+			this->label16->Location = System::Drawing::Point(561, 208);
+			this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(287, 13);
+			this->label16->Size = System::Drawing::Size(432, 20);
 			this->label16->TabIndex = 68;
 			this->label16->Text = L"Количество осадков и продолжительность измерения:";
 			// 
 			// Pressure_trend_value
 			// 
-			this->Pressure_trend_value->Location = System::Drawing::Point(377, 112);
+			this->Pressure_trend_value->Location = System::Drawing::Point(566, 172);
+			this->Pressure_trend_value->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Pressure_trend_value->Name = L"Pressure_trend_value";
-			this->Pressure_trend_value->Size = System::Drawing::Size(48, 20);
+			this->Pressure_trend_value->Size = System::Drawing::Size(70, 26);
 			this->Pressure_trend_value->TabIndex = 67;
 			this->Pressure_trend_value->Text = L"00,1";
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(374, 96);
+			this->label15->Location = System::Drawing::Point(561, 148);
+			this->label15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(314, 13);
+			this->label15->Size = System::Drawing::Size(471, 20);
 			this->label15->TabIndex = 66;
 			this->label15->Text = L"Значение барической тенденции за последние 3 часа в гПа:";
 			// 
@@ -724,102 +783,114 @@ private: System::Windows::Forms::Label^ label32;
 					L"Падение затем без изменения", L"Падение затем менее сильное падение", L"Падение (равномерное или неравномерное)", L"Рост затем падение(падение больше роста)",
 					L"Без изменения затем падение", L"Падение затем более сильное падение"
 			});
-			this->Baric_tendency_characteristic->Location = System::Drawing::Point(377, 72);
+			this->Baric_tendency_characteristic->Location = System::Drawing::Point(566, 111);
+			this->Baric_tendency_characteristic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Baric_tendency_characteristic->Name = L"Baric_tendency_characteristic";
-			this->Baric_tendency_characteristic->Size = System::Drawing::Size(259, 21);
+			this->Baric_tendency_characteristic->Size = System::Drawing::Size(386, 28);
 			this->Baric_tendency_characteristic->TabIndex = 65;
 			this->Baric_tendency_characteristic->Text = L"Рост затем падение(рост больше падения)";
 			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(374, 56);
+			this->label14->Location = System::Drawing::Point(561, 86);
+			this->label14->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(298, 13);
+			this->label14->Size = System::Drawing::Size(443, 20);
 			this->label14->TabIndex = 64;
 			this->label14->Text = L"Изменение давления по барометру за последние 3 часа:";
 			// 
 			// Air_pressure_sea_level
 			// 
-			this->Air_pressure_sea_level->Location = System::Drawing::Point(483, 33);
+			this->Air_pressure_sea_level->Location = System::Drawing::Point(724, 51);
+			this->Air_pressure_sea_level->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Air_pressure_sea_level->Name = L"Air_pressure_sea_level";
-			this->Air_pressure_sea_level->Size = System::Drawing::Size(100, 20);
+			this->Air_pressure_sea_level->Size = System::Drawing::Size(148, 26);
 			this->Air_pressure_sea_level->TabIndex = 63;
 			this->Air_pressure_sea_level->Text = L"1000,0";
 			// 
 			// Air_pressure_station
 			// 
-			this->Air_pressure_station->Location = System::Drawing::Point(377, 33);
+			this->Air_pressure_station->Location = System::Drawing::Point(566, 51);
+			this->Air_pressure_station->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Air_pressure_station->Name = L"Air_pressure_station";
-			this->Air_pressure_station->Size = System::Drawing::Size(100, 20);
+			this->Air_pressure_station->Size = System::Drawing::Size(148, 26);
 			this->Air_pressure_station->TabIndex = 62;
 			this->Air_pressure_station->Text = L"1000,0";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(374, 16);
+			this->label13->Location = System::Drawing::Point(561, 25);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(212, 13);
+			this->label13->Size = System::Drawing::Size(312, 20);
 			this->label13->TabIndex = 61;
 			this->label13->Text = L"к среднему уровню моря(1000,0-1999,9):";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(374, 3);
+			this->label12->Location = System::Drawing::Point(561, 5);
+			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(279, 13);
+			this->label12->Size = System::Drawing::Size(415, 20);
 			this->label12->TabIndex = 60;
 			this->label12->Text = L"Давление воздуха на уровне станции и  приведенное";
 			// 
 			// Dew_point
 			// 
-			this->Dew_point->Location = System::Drawing::Point(66, 326);
+			this->Dew_point->Location = System::Drawing::Point(99, 502);
+			this->Dew_point->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Dew_point->Name = L"Dew_point";
-			this->Dew_point->Size = System::Drawing::Size(48, 20);
+			this->Dew_point->Size = System::Drawing::Size(70, 26);
 			this->Dew_point->TabIndex = 59;
 			this->Dew_point->Text = L"+1,1";
 			// 
 			// Air_temperature
 			// 
-			this->Air_temperature->Location = System::Drawing::Point(12, 326);
+			this->Air_temperature->Location = System::Drawing::Point(18, 502);
+			this->Air_temperature->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Air_temperature->Name = L"Air_temperature";
-			this->Air_temperature->Size = System::Drawing::Size(48, 20);
+			this->Air_temperature->Size = System::Drawing::Size(70, 26);
 			this->Air_temperature->TabIndex = 58;
 			this->Air_temperature->Text = L"+1,1";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(9, 310);
+			this->label11->Location = System::Drawing::Point(14, 477);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(190, 13);
+			this->label11->Size = System::Drawing::Size(277, 20);
 			this->label11->TabIndex = 57;
 			this->label11->Text = L"Температура воздуха и тоска росы:";
 			// 
 			// Speed_wind
 			// 
-			this->Speed_wind->Location = System::Drawing::Point(66, 287);
+			this->Speed_wind->Location = System::Drawing::Point(99, 442);
+			this->Speed_wind->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Speed_wind->Name = L"Speed_wind";
-			this->Speed_wind->Size = System::Drawing::Size(48, 20);
+			this->Speed_wind->Size = System::Drawing::Size(70, 26);
 			this->Speed_wind->TabIndex = 56;
 			this->Speed_wind->Text = L"5";
 			// 
 			// Direction_wind
 			// 
-			this->Direction_wind->Location = System::Drawing::Point(12, 287);
+			this->Direction_wind->Location = System::Drawing::Point(18, 442);
+			this->Direction_wind->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Direction_wind->Name = L"Direction_wind";
-			this->Direction_wind->Size = System::Drawing::Size(48, 20);
+			this->Direction_wind->Size = System::Drawing::Size(70, 26);
 			this->Direction_wind->TabIndex = 55;
 			this->Direction_wind->Text = L"5";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(9, 271);
+			this->label10->Location = System::Drawing::Point(14, 417);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(273, 13);
+			this->label10->Size = System::Drawing::Size(412, 20);
 			this->label10->TabIndex = 54;
 			this->label10->Text = L"Среднее направление(0-360) и скорость(0-99) ветра:";
 			// 
@@ -833,52 +904,58 @@ private: System::Windows::Forms::Label^ label32;
 					L"Определить невозможно по другим причинам кроме указанных(кроме указаных ранее) ил"
 					L"и наблюдения не производились"
 			});
-			this->Number_clouds->Location = System::Drawing::Point(12, 243);
+			this->Number_clouds->Location = System::Drawing::Point(18, 374);
+			this->Number_clouds->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Number_clouds->Name = L"Number_clouds";
-			this->Number_clouds->Size = System::Drawing::Size(316, 21);
+			this->Number_clouds->Size = System::Drawing::Size(472, 28);
 			this->Number_clouds->TabIndex = 53;
 			this->Number_clouds->Text = L"1 или менее(но не 0)";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(9, 227);
+			this->label9->Location = System::Drawing::Point(14, 349);
+			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(151, 13);
+			this->label9->Size = System::Drawing::Size(225, 20);
 			this->label9->TabIndex = 52;
 			this->label9->Text = L"Общее количество облаков:";
 			// 
 			// Visibility_range
 			// 
-			this->Visibility_range->Location = System::Drawing::Point(9, 204);
+			this->Visibility_range->Location = System::Drawing::Point(14, 314);
+			this->Visibility_range->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Visibility_range->Name = L"Visibility_range";
-			this->Visibility_range->Size = System::Drawing::Size(100, 20);
+			this->Visibility_range->Size = System::Drawing::Size(148, 26);
 			this->Visibility_range->TabIndex = 51;
 			this->Visibility_range->Text = L"0,05";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(6, 188);
+			this->label8->Location = System::Drawing::Point(9, 289);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(322, 13);
+			this->label8->Size = System::Drawing::Size(485, 20);
 			this->label8->TabIndex = 50;
 			this->label8->Text = L"Метеорологическая дальность видимости в горизонтальном:";
 			// 
 			// Cloud_height
 			// 
-			this->Cloud_height->Location = System::Drawing::Point(12, 165);
+			this->Cloud_height->Location = System::Drawing::Point(18, 254);
+			this->Cloud_height->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Cloud_height->Name = L"Cloud_height";
-			this->Cloud_height->Size = System::Drawing::Size(100, 20);
+			this->Cloud_height->Size = System::Drawing::Size(148, 26);
 			this->Cloud_height->TabIndex = 49;
 			this->Cloud_height->Text = L"1";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(9, 123);
+			this->label7->Location = System::Drawing::Point(14, 189);
+			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(317, 39);
+			this->label7->Size = System::Drawing::Size(468, 60);
 			this->label7->TabIndex = 48;
 			this->label7->Text = L"Высота основания самых низких облаков над поверхностью\r\n(не определено или нижняя"
 				L" граница облачности находится \r\nниже уровня станции - /):";
@@ -887,18 +964,20 @@ private: System::Windows::Forms::Label^ label32;
 			// 
 			this->Type_station->FormattingEnabled = true;
 			this->Type_station->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Обслуживаемая персоналом", L"Автоматическая" });
-			this->Type_station->Location = System::Drawing::Point(9, 99);
+			this->Type_station->Location = System::Drawing::Point(14, 152);
+			this->Type_station->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Type_station->Name = L"Type_station";
-			this->Type_station->Size = System::Drawing::Size(223, 21);
+			this->Type_station->Size = System::Drawing::Size(332, 28);
 			this->Type_station->TabIndex = 47;
 			this->Type_station->Text = L"Обслуживаемая персоналом";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(9, 83);
+			this->label6->Location = System::Drawing::Point(14, 128);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(73, 13);
+			this->label6->Size = System::Drawing::Size(106, 20);
 			this->label6->TabIndex = 46;
 			this->label6->Text = L"Тип станции:";
 			// 
@@ -909,18 +988,20 @@ private: System::Windows::Forms::Label^ label32;
 				L"Включена", L"Не включена (Нет явлений подлежащих передаче)",
 					L"Не включена (Наблюдения не производились)"
 			});
-			this->Group_7wwW1W2->Location = System::Drawing::Point(9, 59);
+			this->Group_7wwW1W2->Location = System::Drawing::Point(14, 91);
+			this->Group_7wwW1W2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Group_7wwW1W2->Name = L"Group_7wwW1W2";
-			this->Group_7wwW1W2->Size = System::Drawing::Size(223, 21);
+			this->Group_7wwW1W2->Size = System::Drawing::Size(332, 28);
 			this->Group_7wwW1W2->TabIndex = 45;
 			this->Group_7wwW1W2->Text = L"Включена";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(9, 43);
+			this->label5->Location = System::Drawing::Point(14, 66);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(164, 13);
+			this->label5->Size = System::Drawing::Size(238, 20);
 			this->label5->TabIndex = 44;
 			this->label5->Text = L"Включение группы 7wwW1W2:";
 			// 
@@ -931,18 +1012,20 @@ private: System::Windows::Forms::Label^ label32;
 				L"Включена в раздел 1 и 3", L"Включена в раздел 1",
 					L"Включена в раздел 3", L"Не включена (Осадков не было)", L"Не включена (Количество осадков не измерялось)"
 			});
-			this->Group_6RRRtr->Location = System::Drawing::Point(9, 19);
+			this->Group_6RRRtr->Location = System::Drawing::Point(14, 29);
+			this->Group_6RRRtr->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Group_6RRRtr->Name = L"Group_6RRRtr";
-			this->Group_6RRRtr->Size = System::Drawing::Size(223, 21);
+			this->Group_6RRRtr->Size = System::Drawing::Size(332, 28);
 			this->Group_6RRRtr->TabIndex = 43;
 			this->Group_6RRRtr->Text = L"Включена в раздел 1 и 3";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(6, 3);
+			this->label4->Location = System::Drawing::Point(9, 5);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(149, 13);
+			this->label4->Size = System::Drawing::Size(221, 20);
 			this->label4->TabIndex = 42;
 			this->label4->Text = L"Включение группы 6RRRtR:";
 			// 
@@ -977,9 +1060,10 @@ private: System::Windows::Forms::Label^ label32;
 			this->tabPage3->Controls->Add(this->label20);
 			this->tabPage3->Controls->Add(this->Max_day_temperature);
 			this->tabPage3->Controls->Add(this->label19);
-			this->tabPage3->Location = System::Drawing::Point(4, 22);
+			this->tabPage3->Location = System::Drawing::Point(4, 29);
+			this->tabPage3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(710, 400);
+			this->tabPage3->Size = System::Drawing::Size(1064, 622);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Раздел 3";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -992,9 +1076,10 @@ private: System::Windows::Forms::Label^ label32;
 					L"зонта (Eh) и направление, в котором наблюдается (Da)",
 					L"Скорость перемещения облаков (vp) и направление (Dp), откуда перемещаются облака"
 			});
-			this->Additional2_characteristic_1->Location = System::Drawing::Point(376, 230);
+			this->Additional2_characteristic_1->Location = System::Drawing::Point(564, 354);
+			this->Additional2_characteristic_1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional2_characteristic_1->Name = L"Additional2_characteristic_1";
-			this->Additional2_characteristic_1->Size = System::Drawing::Size(316, 21);
+			this->Additional2_characteristic_1->Size = System::Drawing::Size(472, 28);
 			this->Additional2_characteristic_1->TabIndex = 88;
 			this->Additional2_characteristic_1->Text = L"Отсутствует";
 			this->Additional2_characteristic_1->Visible = false;
@@ -1002,9 +1087,10 @@ private: System::Windows::Forms::Label^ label32;
 			// 
 			// Additional2_characteristic_4
 			// 
-			this->Additional2_characteristic_4->Location = System::Drawing::Point(588, 258);
+			this->Additional2_characteristic_4->Location = System::Drawing::Point(882, 397);
+			this->Additional2_characteristic_4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional2_characteristic_4->Name = L"Additional2_characteristic_4";
-			this->Additional2_characteristic_4->Size = System::Drawing::Size(104, 20);
+			this->Additional2_characteristic_4->Size = System::Drawing::Size(154, 26);
 			this->Additional2_characteristic_4->TabIndex = 87;
 			this->Additional2_characteristic_4->Text = L"1";
 			this->Additional2_characteristic_4->Visible = false;
@@ -1012,9 +1098,10 @@ private: System::Windows::Forms::Label^ label32;
 			// Additional2_characteristic_3
 			// 
 			this->Additional2_characteristic_3->FormattingEnabled = true;
-			this->Additional2_characteristic_3->Location = System::Drawing::Point(482, 257);
+			this->Additional2_characteristic_3->Location = System::Drawing::Point(723, 395);
+			this->Additional2_characteristic_3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional2_characteristic_3->Name = L"Additional2_characteristic_3";
-			this->Additional2_characteristic_3->Size = System::Drawing::Size(100, 21);
+			this->Additional2_characteristic_3->Size = System::Drawing::Size(148, 28);
 			this->Additional2_characteristic_3->TabIndex = 86;
 			this->Additional2_characteristic_3->Text = L"Отсутствует";
 			this->Additional2_characteristic_3->Visible = false;
@@ -1022,9 +1109,10 @@ private: System::Windows::Forms::Label^ label32;
 			// Additional2_characteristic_2
 			// 
 			this->Additional2_characteristic_2->FormattingEnabled = true;
-			this->Additional2_characteristic_2->Location = System::Drawing::Point(376, 257);
+			this->Additional2_characteristic_2->Location = System::Drawing::Point(564, 395);
+			this->Additional2_characteristic_2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional2_characteristic_2->Name = L"Additional2_characteristic_2";
-			this->Additional2_characteristic_2->Size = System::Drawing::Size(100, 21);
+			this->Additional2_characteristic_2->Size = System::Drawing::Size(148, 28);
 			this->Additional2_characteristic_2->TabIndex = 85;
 			this->Additional2_characteristic_2->Text = L"Отсутствует";
 			this->Additional2_characteristic_2->Visible = false;
@@ -1032,9 +1120,10 @@ private: System::Windows::Forms::Label^ label32;
 			// label29
 			// 
 			this->label29->AutoSize = true;
-			this->label29->Location = System::Drawing::Point(373, 201);
+			this->label29->Location = System::Drawing::Point(560, 309);
+			this->label29->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label29->Name = L"label29";
-			this->label29->Size = System::Drawing::Size(288, 26);
+			this->label29->Size = System::Drawing::Size(421, 40);
 			this->label29->TabIndex = 84;
 			this->label29->Text = L"Дополнительные характеристики облачности,\r\nо которой сообщено в группах 950Nmn3 и"
 				L"ли 951 Nv n4:";
@@ -1042,9 +1131,10 @@ private: System::Windows::Forms::Label^ label32;
 			// 
 			// Additional_characteristic_3
 			// 
-			this->Additional_characteristic_3->Location = System::Drawing::Point(376, 178);
+			this->Additional_characteristic_3->Location = System::Drawing::Point(564, 274);
+			this->Additional_characteristic_3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional_characteristic_3->Name = L"Additional_characteristic_3";
-			this->Additional_characteristic_3->Size = System::Drawing::Size(100, 20);
+			this->Additional_characteristic_3->Size = System::Drawing::Size(148, 26);
 			this->Additional_characteristic_3->TabIndex = 83;
 			this->Additional_characteristic_3->Text = L"1";
 			this->Additional_characteristic_3->Visible = false;
@@ -1052,9 +1142,10 @@ private: System::Windows::Forms::Label^ label32;
 			// Additional_characteristic_2
 			// 
 			this->Additional_characteristic_2->FormattingEnabled = true;
-			this->Additional_characteristic_2->Location = System::Drawing::Point(376, 151);
+			this->Additional_characteristic_2->Location = System::Drawing::Point(564, 232);
+			this->Additional_characteristic_2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional_characteristic_2->Name = L"Additional_characteristic_2";
-			this->Additional_characteristic_2->Size = System::Drawing::Size(316, 21);
+			this->Additional_characteristic_2->Size = System::Drawing::Size(472, 28);
 			this->Additional_characteristic_2->TabIndex = 82;
 			this->Additional_characteristic_2->Text = L"Отсутствует";
 			this->Additional_characteristic_2->Visible = false;
@@ -1062,9 +1153,10 @@ private: System::Windows::Forms::Label^ label32;
 			// Additional_characteristic_1
 			// 
 			this->Additional_characteristic_1->FormattingEnabled = true;
-			this->Additional_characteristic_1->Location = System::Drawing::Point(376, 124);
+			this->Additional_characteristic_1->Location = System::Drawing::Point(564, 191);
+			this->Additional_characteristic_1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional_characteristic_1->Name = L"Additional_characteristic_1";
-			this->Additional_characteristic_1->Size = System::Drawing::Size(316, 21);
+			this->Additional_characteristic_1->Size = System::Drawing::Size(472, 28);
 			this->Additional_characteristic_1->TabIndex = 81;
 			this->Additional_characteristic_1->Text = L"Отсутствует";
 			this->Additional_characteristic_1->Visible = false;
@@ -1081,9 +1173,10 @@ private: System::Windows::Forms::Label^ label32;
 					L"Высота свежевыпавшего снега (ss) за истекшие сутки", L"Снежная мгла в срок наблюдения", L"Снежная мгла между сроками наблюдения",
 					L"Облачность над горами и перевалами состояние (Nm) эволюция (n3)", L"Облачность, туман, дымка внизу состояние (Nv) и эволюция этих явлений (n4)"
 			});
-			this->Additional_weather_information->Location = System::Drawing::Point(376, 97);
+			this->Additional_weather_information->Location = System::Drawing::Point(564, 149);
+			this->Additional_weather_information->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Additional_weather_information->Name = L"Additional_weather_information";
-			this->Additional_weather_information->Size = System::Drawing::Size(316, 21);
+			this->Additional_weather_information->Size = System::Drawing::Size(472, 28);
 			this->Additional_weather_information->TabIndex = 80;
 			this->Additional_weather_information->Text = L"Отсутствует";
 			this->Additional_weather_information->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Additional_weather_information_SelectedIndexChanged);
@@ -1091,9 +1184,10 @@ private: System::Windows::Forms::Label^ label32;
 			// label28
 			// 
 			this->label28->AutoSize = true;
-			this->label28->Location = System::Drawing::Point(373, 67);
+			this->label28->Location = System::Drawing::Point(560, 103);
+			this->label28->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label28->Name = L"label28";
-			this->label28->Size = System::Drawing::Size(252, 26);
+			this->label28->Size = System::Drawing::Size(377, 40);
 			this->label28->TabIndex = 79;
 			this->label28->Text = L"Дополнительная информация о погоде в срок и\r\nмежду сроками наблюдения:";
 			// 
@@ -1104,18 +1198,20 @@ private: System::Windows::Forms::Label^ label32;
 				L"Перистые", L"Перисто-кучевые", L"Перисто-слоистые",
 					L"Высококучевые", L"Высокослоистые", L"Слоисто-дождевые", L"Слоисто-кучевые", L"Слоистые", L"Кучевые", L"Кучево-дождевые", L"Не определено"
 			});
-			this->NGO_type->Location = System::Drawing::Point(376, 43);
+			this->NGO_type->Location = System::Drawing::Point(564, 66);
+			this->NGO_type->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->NGO_type->Name = L"NGO_type";
-			this->NGO_type->Size = System::Drawing::Size(316, 21);
+			this->NGO_type->Size = System::Drawing::Size(472, 28);
 			this->NGO_type->TabIndex = 78;
 			this->NGO_type->Text = L"Перистые";
 			// 
 			// label27
 			// 
 			this->label27->AutoSize = true;
-			this->label27->Location = System::Drawing::Point(373, 0);
+			this->label27->Location = System::Drawing::Point(560, 0);
+			this->label27->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label27->Name = L"label27";
-			this->label27->Size = System::Drawing::Size(168, 13);
+			this->label27->Size = System::Drawing::Size(252, 20);
 			this->label27->TabIndex = 77;
 			this->label27->Text = L"Количество и тип облаков НГО:";
 			// 
@@ -1129,9 +1225,10 @@ private: System::Windows::Forms::Label^ label32;
 					L"Определить невозможно по другим причинам кроме указанных(кроме указаных ранее) ил"
 					L"и наблюдения не производились"
 			});
-			this->NGO_number->Location = System::Drawing::Point(376, 16);
+			this->NGO_number->Location = System::Drawing::Point(564, 25);
+			this->NGO_number->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->NGO_number->Name = L"NGO_number";
-			this->NGO_number->Size = System::Drawing::Size(316, 21);
+			this->NGO_number->Size = System::Drawing::Size(472, 28);
 			this->NGO_number->TabIndex = 76;
 			this->NGO_number->Text = L"0 (облаков нет)";
 			// 
@@ -1139,52 +1236,58 @@ private: System::Windows::Forms::Label^ label32;
 			// 
 			this->NGO_measurements->FormattingEnabled = true;
 			this->NGO_measurements->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Да", L"Нет" });
-			this->NGO_measurements->Location = System::Drawing::Point(5, 307);
+			this->NGO_measurements->Location = System::Drawing::Point(8, 472);
+			this->NGO_measurements->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->NGO_measurements->Name = L"NGO_measurements";
-			this->NGO_measurements->Size = System::Drawing::Size(42, 21);
+			this->NGO_measurements->Size = System::Drawing::Size(61, 28);
 			this->NGO_measurements->TabIndex = 71;
 			this->NGO_measurements->Text = L"Да";
 			// 
 			// label26
 			// 
 			this->label26->AutoSize = true;
-			this->label26->Location = System::Drawing::Point(3, 291);
+			this->label26->Location = System::Drawing::Point(4, 448);
+			this->label26->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label26->Name = L"label26";
-			this->label26->Size = System::Drawing::Size(265, 13);
+			this->label26->Size = System::Drawing::Size(394, 20);
 			this->label26->TabIndex = 14;
 			this->label26->Text = L"Была ли высота НГО измерена инструментально\?";
 			// 
 			// Sunshine_duration
 			// 
-			this->Sunshine_duration->Location = System::Drawing::Point(3, 268);
+			this->Sunshine_duration->Location = System::Drawing::Point(4, 412);
+			this->Sunshine_duration->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Sunshine_duration->Name = L"Sunshine_duration";
-			this->Sunshine_duration->Size = System::Drawing::Size(100, 20);
+			this->Sunshine_duration->Size = System::Drawing::Size(148, 26);
 			this->Sunshine_duration->TabIndex = 13;
 			this->Sunshine_duration->Text = L"00,1";
 			// 
 			// label25
 			// 
 			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(0, 252);
+			this->label25->Location = System::Drawing::Point(0, 388);
+			this->label25->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label25->Name = L"label25";
-			this->label25->Size = System::Drawing::Size(300, 13);
+			this->label25->Size = System::Drawing::Size(448, 20);
 			this->label25->TabIndex = 12;
 			this->label25->Text = L"Продолжительность солнечного сияния за сутки в часах:";
 			// 
 			// Snow_height
 			// 
-			this->Snow_height->Location = System::Drawing::Point(3, 229);
+			this->Snow_height->Location = System::Drawing::Point(4, 352);
+			this->Snow_height->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Snow_height->Name = L"Snow_height";
-			this->Snow_height->Size = System::Drawing::Size(100, 20);
+			this->Snow_height->Size = System::Drawing::Size(148, 26);
 			this->Snow_height->TabIndex = 11;
 			this->Snow_height->Text = L"001";
 			// 
 			// label24
 			// 
 			this->label24->AutoSize = true;
-			this->label24->Location = System::Drawing::Point(2, 200);
+			this->label24->Location = System::Drawing::Point(3, 308);
+			this->label24->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label24->Name = L"label24";
-			this->label24->Size = System::Drawing::Size(262, 26);
+			this->label24->Size = System::Drawing::Size(383, 40);
 			this->label24->TabIndex = 10;
 			this->label24->Text = L"Высота снежного покрова(менее 0,5 - !5;НП - ->1; \r\nизмерения невозможны - /):";
 			// 
@@ -1198,35 +1301,39 @@ private: System::Windows::Forms::Label^ label32;
 					L"Сухой рассыпчатый снег (со льдом или без него) 5–9 баллов", L"Сухой рассыпчатый снег (со льдом или без него) 10 баллов равномерный слой",
 					L"Сухой рассыпчатый снег (со льдом или без него) 10 баллов неравномерный слой", L"Снег с глубокими сугробами заносами", L"Не определено"
 			});
-			this->Snow_condition->Location = System::Drawing::Point(5, 176);
+			this->Snow_condition->Location = System::Drawing::Point(8, 271);
+			this->Snow_condition->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Snow_condition->Name = L"Snow_condition";
-			this->Snow_condition->Size = System::Drawing::Size(340, 21);
+			this->Snow_condition->Size = System::Drawing::Size(508, 28);
 			this->Snow_condition->TabIndex = 9;
 			this->Snow_condition->Text = L"Лед более 1 балла";
 			// 
 			// label23
 			// 
 			this->label23->AutoSize = true;
-			this->label23->Location = System::Drawing::Point(3, 160);
+			this->label23->Location = System::Drawing::Point(4, 246);
+			this->label23->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label23->Name = L"label23";
-			this->label23->Size = System::Drawing::Size(307, 13);
+			this->label23->Size = System::Drawing::Size(461, 20);
 			this->label23->TabIndex = 8;
 			this->label23->Text = L"Cостояние подстилающей поверхности при наличии снега:";
 			// 
 			// Night_soil_temperature
 			// 
-			this->Night_soil_temperature->Location = System::Drawing::Point(6, 137);
+			this->Night_soil_temperature->Location = System::Drawing::Point(9, 211);
+			this->Night_soil_temperature->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Night_soil_temperature->Name = L"Night_soil_temperature";
-			this->Night_soil_temperature->Size = System::Drawing::Size(100, 20);
+			this->Night_soil_temperature->Size = System::Drawing::Size(148, 26);
 			this->Night_soil_temperature->TabIndex = 7;
 			this->Night_soil_temperature->Text = L"+01";
 			// 
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(3, 121);
+			this->label22->Location = System::Drawing::Point(4, 186);
+			this->label22->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label22->Name = L"label22";
-			this->label22->Size = System::Drawing::Size(291, 13);
+			this->label22->Size = System::Drawing::Size(434, 20);
 			this->label22->TabIndex = 6;
 			this->label22->Text = L"Минимальная температура поверхности почвы за ночь:";
 			// 
@@ -1241,133 +1348,193 @@ private: System::Windows::Forms::Label^ label32;
 					L"Покрыта сухой пылью или сыпучим песком частично", L"Покрыта сухой пылью или сыпучим песком полностью (тонкий слой)", L"Покрыта сухой пылью или сыпучим песком умеренный или толстый слой",
 					L"Сухая чрезвычайно (с трещинами)", L"Не определено "
 			});
-			this->Soil_surface_condition->Location = System::Drawing::Point(6, 97);
+			this->Soil_surface_condition->Location = System::Drawing::Point(9, 149);
+			this->Soil_surface_condition->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Soil_surface_condition->Name = L"Soil_surface_condition";
-			this->Soil_surface_condition->Size = System::Drawing::Size(339, 21);
+			this->Soil_surface_condition->Size = System::Drawing::Size(506, 28);
 			this->Soil_surface_condition->TabIndex = 5;
 			this->Soil_surface_condition->Text = L"Сухая (без трещин, заметного количества пыли или сыпучего песка)";
 			// 
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(3, 80);
+			this->label21->Location = System::Drawing::Point(4, 123);
+			this->label21->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(342, 13);
+			this->label21->Size = System::Drawing::Size(508, 20);
 			this->label21->TabIndex = 4;
 			this->label21->Text = L"Cостояние поверхности почвы при отсутствии снежного покрова:";
 			// 
 			// Min_day_temperature
 			// 
-			this->Min_day_temperature->Location = System::Drawing::Point(5, 57);
+			this->Min_day_temperature->Location = System::Drawing::Point(8, 88);
+			this->Min_day_temperature->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Min_day_temperature->Name = L"Min_day_temperature";
-			this->Min_day_temperature->Size = System::Drawing::Size(100, 20);
+			this->Min_day_temperature->Size = System::Drawing::Size(148, 26);
 			this->Min_day_temperature->TabIndex = 3;
 			this->Min_day_temperature->Text = L"+00,1";
 			// 
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(2, 40);
+			this->label20->Location = System::Drawing::Point(3, 62);
+			this->label20->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(234, 13);
+			this->label20->Size = System::Drawing::Size(349, 20);
 			this->label20->TabIndex = 2;
 			this->label20->Text = L"Минимальная температура воздуха за день:";
 			// 
 			// Max_day_temperature
 			// 
-			this->Max_day_temperature->Location = System::Drawing::Point(6, 17);
+			this->Max_day_temperature->Location = System::Drawing::Point(9, 26);
+			this->Max_day_temperature->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Max_day_temperature->Name = L"Max_day_temperature";
-			this->Max_day_temperature->Size = System::Drawing::Size(100, 20);
+			this->Max_day_temperature->Size = System::Drawing::Size(148, 26);
 			this->Max_day_temperature->TabIndex = 1;
 			this->Max_day_temperature->Text = L"+00,1";
 			// 
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(3, 0);
+			this->label19->Location = System::Drawing::Point(4, 0);
+			this->label19->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(240, 13);
+			this->label19->Size = System::Drawing::Size(356, 20);
 			this->label19->TabIndex = 0;
 			this->label19->Text = L"Максимальная температура воздуха за день:";
 			// 
 			// tabPage4
 			// 
+			this->tabPage4->Controls->Add(this->Day_rainfall);
+			this->tabPage4->Controls->Add(this->label34);
+			this->tabPage4->Controls->Add(this->Wind_speed_maximum);
+			this->tabPage4->Controls->Add(this->label33);
 			this->tabPage4->Controls->Add(this->Min_night_air_temperature);
 			this->tabPage4->Controls->Add(this->label32);
 			this->tabPage4->Controls->Add(this->Air_temperature_average);
 			this->tabPage4->Controls->Add(this->label31);
 			this->tabPage4->Controls->Add(this->Soil_temperature);
 			this->tabPage4->Controls->Add(this->label30);
-			this->tabPage4->Location = System::Drawing::Point(4, 22);
+			this->tabPage4->Location = System::Drawing::Point(4, 29);
+			this->tabPage4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Size = System::Drawing::Size(710, 400);
+			this->tabPage4->Size = System::Drawing::Size(1064, 622);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Раздел 5";
 			this->tabPage4->UseVisualStyleBackColor = true;
 			// 
+			// Wind_speed_maximum
+			// 
+			this->Wind_speed_maximum->Location = System::Drawing::Point(9, 221);
+			this->Wind_speed_maximum->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->Wind_speed_maximum->Name = L"Wind_speed_maximum";
+			this->Wind_speed_maximum->Size = System::Drawing::Size(148, 26);
+			this->Wind_speed_maximum->TabIndex = 15;
+			this->Wind_speed_maximum->Text = L"1";
+			// 
+			// label33
+			// 
+			this->label33->AutoSize = true;
+			this->label33->Location = System::Drawing::Point(5, 196);
+			this->label33->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label33->Name = L"label33";
+			this->label33->Size = System::Drawing::Size(542, 20);
+			this->label33->TabIndex = 14;
+			this->label33->Text = L"Максимальная скорость ветра при порывах за прошедшие полусутки:";
+			// 
+			// Min_night_air_temperature
+			// 
+			this->Min_night_air_temperature->Location = System::Drawing::Point(4, 165);
+			this->Min_night_air_temperature->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->Min_night_air_temperature->Name = L"Min_night_air_temperature";
+			this->Min_night_air_temperature->Size = System::Drawing::Size(148, 26);
+			this->Min_night_air_temperature->TabIndex = 13;
+			this->Min_night_air_temperature->Text = L"+01";
+			// 
+			// label32
+			// 
+			this->label32->AutoSize = true;
+			this->label32->Location = System::Drawing::Point(4, 120);
+			this->label32->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label32->Name = L"label32";
+			this->label32->Size = System::Drawing::Size(339, 40);
+			this->label32->TabIndex = 12;
+			this->label32->Text = L"Mинимальная температура воздуха за\r\nночь на высоте 2 см от поверхности почвы:";
+			// 
 			// Air_temperature_average
 			// 
-			this->Air_temperature_average->Location = System::Drawing::Point(6, 55);
+			this->Air_temperature_average->Location = System::Drawing::Point(9, 85);
+			this->Air_temperature_average->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Air_temperature_average->Name = L"Air_temperature_average";
-			this->Air_temperature_average->Size = System::Drawing::Size(100, 20);
+			this->Air_temperature_average->Size = System::Drawing::Size(148, 26);
 			this->Air_temperature_average->TabIndex = 11;
 			this->Air_temperature_average->Text = L"+01";
 			// 
 			// label31
 			// 
 			this->label31->AutoSize = true;
-			this->label31->Location = System::Drawing::Point(3, 39);
+			this->label31->Location = System::Drawing::Point(4, 60);
+			this->label31->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label31->Name = L"label31";
-			this->label31->Size = System::Drawing::Size(271, 13);
+			this->label31->Size = System::Drawing::Size(408, 20);
 			this->label31->TabIndex = 10;
 			this->label31->Text = L"Cредняя температура воздуха за прошедшие сутки:";
 			// 
 			// Soil_temperature
 			// 
-			this->Soil_temperature->Location = System::Drawing::Point(6, 16);
+			this->Soil_temperature->Location = System::Drawing::Point(9, 25);
+			this->Soil_temperature->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Soil_temperature->Name = L"Soil_temperature";
-			this->Soil_temperature->Size = System::Drawing::Size(100, 20);
+			this->Soil_temperature->Size = System::Drawing::Size(148, 26);
 			this->Soil_temperature->TabIndex = 9;
 			this->Soil_temperature->Text = L"+01";
 			// 
 			// label30
 			// 
 			this->label30->AutoSize = true;
-			this->label30->Location = System::Drawing::Point(3, 0);
+			this->label30->Location = System::Drawing::Point(4, 0);
+			this->label30->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label30->Name = L"label30";
-			this->label30->Size = System::Drawing::Size(324, 13);
+			this->label30->Size = System::Drawing::Size(484, 20);
 			this->label30->TabIndex = 8;
 			this->label30->Text = L"Температура подстилающей поверхности в срок наблюдения:";
 			// 
-			// label32
+			// label34
 			// 
-			this->label32->AutoSize = true;
-			this->label32->Location = System::Drawing::Point(3, 78);
-			this->label32->Name = L"label32";
-			this->label32->Size = System::Drawing::Size(229, 26);
-			this->label32->TabIndex = 12;
-			this->label32->Text = L"Mинимальная температура воздуха за\r\nночь на высоте 2 см от поверхности почвы:";
+			this->label34->AutoSize = true;
+			this->label34->Location = System::Drawing::Point(5, 252);
+			this->label34->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label34->Name = L"label34";
+			this->label34->Size = System::Drawing::Size(321, 20);
+			this->label34->TabIndex = 16;
+			this->label34->Text = L"Количество осадков, выпавших за сутки:";
 			// 
-			// Min_night_air_temperature
+			// Day_rainfall
 			// 
-			this->Min_night_air_temperature->Location = System::Drawing::Point(3, 107);
-			this->Min_night_air_temperature->Name = L"Min_night_air_temperature";
-			this->Min_night_air_temperature->Size = System::Drawing::Size(100, 20);
-			this->Min_night_air_temperature->TabIndex = 13;
-			this->Min_night_air_temperature->Text = L"+01";
+			this->Day_rainfall->Location = System::Drawing::Point(9, 277);
+			this->Day_rainfall->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->Day_rainfall->Name = L"Day_rainfall";
+			this->Day_rainfall->Size = System::Drawing::Size(70, 26);
+			this->Day_rainfall->TabIndex = 70;
+			this->Day_rainfall->Text = L"00,1";
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(928, 483);
+			this->ClientSize = System::Drawing::Size(1392, 743);
 			this->Controls->Add(this->splitContainer1);
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->splitContainer1->Panel1->ResumeLayout(false);
 			this->splitContainer1->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
 			this->splitContainer1->ResumeLayout(false);
+			this->splitContainer2->Panel1->ResumeLayout(false);
+			this->splitContainer2->Panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->EndInit();
+			this->splitContainer2->ResumeLayout(false);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
@@ -1384,13 +1551,15 @@ private: System::Windows::Forms::Label^ label32;
 		void calculation()
 		{
 			//Раздел 0
-			//MiMiMjMj 
+			//MiMiMjMj Буквенный указатель кода. Для информации, передаваемой в коде КН-01 SYNOP
 			String^ Summary;
 			String^ Code_letter_pointer = "AAXX";
 			Summary += Code_letter_pointer;
 			Summary += " ";
 
-			//YYGGiw
+			//YYGGiw Дата и срок наблюдения по ВСВ:
+									//YY – число месяца, GG – срок наблюдения в часах,
+									//iw – указатель единиц сообщаемой в сводке скорости ветра
 			String^ Data = Data_calculation->Text;
 			String^ Time = Time_calculation->Text;
 			String^ Type_speed_wind = Type_speed->Text;
@@ -1406,7 +1575,9 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += Convert::ToString(Type_wind);
 			Summary += " ";
 
-			//IIiii
+			//IIiii Индексный номер станции:
+									//II – номер района,
+									//iii – номер станции в пределах района II
 			String ^Number_of_district = Number_district->Text;
 			String ^Number_of_station = Number_station->Text;
 			Summary += Number_of_district;
@@ -1414,7 +1585,11 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//Раздел 1
-			//iRixhVV
+			//iRixhVV 
+									//iR – указатель наличия в сводке группы 6RRRtR, указатель типа станции (обслуживаемая 
+									//персоналом или автоматическая) и наличия в сводке группы 7wwW1W2
+									//h – высота нижней границы самых низких облаков(CL или CM);
+									//VV – метеорологическая дальность видимости
 			int Availability_6RRRtr = Group_6RRRtr->SelectedIndex;
 			String^ Ok_6RRRtr;
 			Ok_6RRRtr = Convert::ToString(Availability_6RRRtr);
@@ -1461,6 +1636,9 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//Nddff
+									//N – общее количество облаков всех ярусов
+									//среднее направление ветра в срок наблюдения
+									//средняя скорость ветра в срок наблюдения в м/с 
 			int Number_of_clouds = Number_clouds->SelectedIndex;
 			String^ Ok_Number_of_clouds;
 			if (Number_of_clouds <= 9)Ok_Number_of_clouds = Convert::ToString(Number_of_clouds);
@@ -1481,6 +1659,8 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//1snTTT
+									//1 - отличительная цифра группы
+									//температура воздуха (sn – знак, TTT – значение в градусах Цельсия с точностью до десятых долей градуса)
 			double Temperature_of_air = Convert::ToDouble(Air_temperature->Text);
 			String^ Sign="0";
 			if (Temperature_of_air < 0) {
@@ -1495,6 +1675,8 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//2snTdTdTd
+									//2 – отличительная цифра группы
+									//snTdTdTd – точка росы (sn – знак, TdTdTd – значение в градусах Цельсия с точностью до десятых долей).
 			double Point_of_dew = Convert::ToDouble(Dew_point->Text);
 			Sign = "0";
 			if (Point_of_dew < 0) {
@@ -1509,6 +1691,8 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			// 3PoPoPoPo
+									//3 – отличительная цифра группы
+									//PoPoPoPo – давление воздуха на уровне станции в гПа с точностью до десятых долей
 			double Air_pressure_on_station = Convert::ToDouble(Air_pressure_station->Text);
 			Air_pressure_on_station = Air_pressure_on_station - 1000;
 
@@ -1520,6 +1704,8 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//4PPPP
+									//4 – отличительная цифра группы
+									//PPPP – давление воздуха, приведенное к среднему уровню моря, в гПа с точностью до десятых долей
 			double Air_pressure_on_sea_level = Convert::ToDouble(Air_pressure_sea_level->Text);
 			Air_pressure_on_sea_level = Air_pressure_on_sea_level - 1000;
 
@@ -1532,6 +1718,9 @@ private: System::Windows::Forms::Label^ label32;
 			//4a3hhh пока нет, тк я не понял, что имеется ввиду или, или
 			
 			//5appp 
+									//5 – отличительная цифра группы
+									//a – характеристика барической тенденции за последние 3 часа;
+									//ppp – значение барической тенденции за последние 3 часа в гПа с точностью до десятых долей. 
 			Summary += "5";
 			int Characteristic_of_baric_tendency = Baric_tendency_characteristic->SelectedIndex;
 			if (Characteristic_of_baric_tendency == 0)Characteristic_of_baric_tendency = 0;
@@ -1553,6 +1742,9 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//6RRRtR
+									//6 – отличительная цифра группы
+									//RRR – количество осадков, выпавших за период tR
+									//tR – продолжительность периода, за который измерено количество осадков, указанное на месте RRR
 			if (Availability_6RRRtr == 0 || Availability_6RRRtr == 1)
 			{
 				double Number_of_precipitation = Convert::ToDouble(Rainfall->Text);
@@ -1574,6 +1766,9 @@ private: System::Windows::Forms::Label^ label32;
 			}
 
 			//7wwW1W2
+									//7 – отличительная цифра группы
+									//ww – текущая погода (погода в срок наблюдения или в течение последнего часа перед сроком наблюдения)
+									//W1W2 - прошедшая погода (погода в период между сроками наблюдений)
 			int Current_of_weather = Current_weather->SelectedIndex;
 			int Past_of_weather = Past_weather->SelectedIndex;
 
@@ -1586,6 +1781,11 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//8NhCLCMCH
+									//8 – отличительная цифра группы
+									//Nh – количество облаков CL или CM, если облаков CL нет
+									//CL – облака вертикального развития и облака нижнего яруса(кроме слоистодождевых)
+									//CM – облака среднего яруса и слоисто-дождевые облака
+									//CH – облака верхнего яруса
 			int Exact_amount_of_clouds = Clouds_exact_amount->SelectedIndex;
 			String^ Ok_Exact_amount_of_clouds;
 			if (Exact_amount_of_clouds <= 9)Ok_Exact_amount_of_clouds = Convert::ToString(Exact_amount_of_clouds);
@@ -1613,9 +1813,15 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += Ok_Top_of_cloud;
 			Summary += " ";
 			//Раздел 3
+									//Отличительная группа раздела 3
 			Summary += "333";
 			Summary += " ";
 			//1snTxTxTx
+									//1 – отличительная цифра группы
+									//snTxTxTx – максимальная температура воздуха за день
+									//sn – знак температуры
+									//TxTxTx – значение в градусах Цельсия с точностью до десятых долей градуса
+
 			double Max_temperature_of_day = Convert::ToDouble(Max_day_temperature->Text);
 			Sign = "0";
 			if (Max_temperature_of_day < 0) {
@@ -1630,6 +1836,10 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//2snTnTnTn
+									//2 – отличительная цифра группы
+									//snTnTnTn – минимальная температура воздуха за ночь
+									//sn – знак температуры
+									//TnTnTn – значение в градусах Цельсия с точностью до десятых долей градуса
 			double Min_temperature_of_day = Convert::ToDouble(Min_day_temperature->Text);
 			Sign = "0";
 			if (Min_temperature_of_day < 0) {
@@ -1644,6 +1854,11 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//3EsnTgTg
+									//3 – отличительная цифра группы
+									//Е – состояние поверхности почвы при отсутствии снежного покрова
+									//snTgTg – минимальная температура поверхности почвы за ночь 
+									//sn – знак температуры
+									//TgTg – значение в градусах Цельсия с точностью до одного градуса
 			int Condition_of_soil_surfase = Soil_surface_condition->SelectedIndex;
 			String^ Ok_Condition_of_soil_surfase;
 			if (Condition_of_soil_surfase <= 9)Ok_Condition_of_soil_surfase = Convert::ToString(Condition_of_soil_surfase);
@@ -1663,6 +1878,9 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//4E'sss
+									//4 – отличительная цифра группы
+									//E' – состояние подстилающей поверхности при наличии снежного покрова
+									//sss – высота снежного покрова
 			int Condition_of_snow = Snow_condition->SelectedIndex;
 			String^ Ok_Condition_of_snow;
 			if (Condition_of_snow <= 9)Ok_Condition_of_snow = Convert::ToString(Condition_of_snow);
@@ -1684,6 +1902,8 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//55SSS
+									//55 – отличительные цифры группы
+									//SSS – продолжительность солнечного сияния за сутки в часах с точностью до десятых долей часа.
 			double Duration_of_sunshine = Convert::ToDouble(Sunshine_duration->Text);
 			
 
@@ -1694,6 +1914,7 @@ private: System::Windows::Forms::Label^ label32;
 			Summary += " ";
 
 			//6RRRtR
+									//аналогична группе 6RRRtR в разделе 1
 			if (Availability_6RRRtr == 0 || Availability_6RRRtr == 2)
 			{
 				double Number_of_precipitation = Convert::ToDouble(Rainfall->Text);
@@ -1715,6 +1936,11 @@ private: System::Windows::Forms::Label^ label32;
 			}
 
 			//8NsChshs
+									//8 – отличительная цифра группы
+									//hshs – инструментально измеренная высота НГО;
+									//характеристики облачности того слоя или той облачной массы, высота которых сообщена на месте hshs
+									//Ns – количество облачности
+									//C − форма облаков
 			if (Number_of_clouds != 0 && Number_of_clouds != 9 && Number_of_clouds != 10)
 			{
 				int Measurements_of_NGO = NGO_measurements->SelectedIndex;
@@ -1746,6 +1972,8 @@ private: System::Windows::Forms::Label^ label32;
 			}
 
 			//9SРSPspsp
+									//9 – отличительная цифра группы
+									//SPSPspsp – дополнительная информация о погоде в срок и между сроками наблюдения
 			int Additional_information_of_weather = Additional_weather_information->SelectedIndex;
 			if (Additional_information_of_weather != 0)
 			{
@@ -1902,7 +2130,6 @@ private: System::Windows::Forms::Label^ label32;
 					Summary += Ok_Additional_information_of_weather_2;
 					Summary += " ";
 				}
-
 				if (Speed_of_wind >= 10)
 				{
 					Summary += "910";
@@ -1913,6 +2140,8 @@ private: System::Windows::Forms::Label^ label32;
 				}
 				//В период между сроками наблюдения(не получилось пока, тк нет выбора в срок или между сроками)
 				//Максимальная скорость ветра при порывах(ff) Nddff
+				ывыа
+
 				switch (Current_of_weather)
 				{
 				case 41:
@@ -1925,6 +2154,7 @@ private: System::Windows::Forms::Label^ label32;
 				case 48:
 				case 49:
 					Summary += "960"+Convert::ToString(Current_of_weather);
+					Summary += " ";
 					break;
 				default:
 					break;
@@ -1934,11 +2164,17 @@ private: System::Windows::Forms::Label^ label32;
 
 
 			//Раздел 5
+									//Отличительная группа раздела 5
 			Summary += "555";
 			Summary += " ";
 
 
 			//1EsnT'gT'g
+									//1 – отличительная цифра группы
+									//Е – состояние поверхности почвы при отсутствии снежного покрова 
+									//snT'gT'g – температура подстилающей поверхности в срок наблюдения 
+									//sn – знак температуры
+									//T'gT'g – значение в градусах Цельсия с точностью до одного градуса
 			int Temperature_of_soil = Convert::ToInt32(Soil_temperature->Text);
 			Sign = "0";
 			if (Temperature_of_soil < 0) {
@@ -1954,6 +2190,10 @@ private: System::Windows::Forms::Label^ label32;
 
 
 			//5snT24T24T24
+									//5 – отличительная цифра группы
+									//snT24T24T24 – средняя температура воздуха за прошедшие сутки, заканчивающиеся в срок передачи группы
+									//sn – знак температуры
+									//T24T24T24 – значение в градусах Цельсия с точностью до десятых долей градуса
 			double Average_of_air_temperature = Convert::ToDouble(Air_temperature_average->Text);
 			Sign = "0";
 			if (Average_of_air_temperature < 0) {
@@ -1969,6 +2209,10 @@ private: System::Windows::Forms::Label^ label32;
 
 			
 			//52snT2T2
+									//52 – отличительные цифры группы
+									//snT2T2 – минимальная температура воздуха за ночь на высоте 2 см от поверхности почвы
+									//sn – знак температуры
+									//T2T2 – значение в градусах Цельсия с точностью до одного градуса
 			int Min_air_temperature_for_night = Convert::ToInt32(Min_night_air_temperature->Text);
 			Sign = "0";
 			if (Min_air_temperature_for_night < 0) {
@@ -1983,27 +2227,48 @@ private: System::Windows::Forms::Label^ label32;
 
 
 			//530f12f12
-
-
+									//530 – отличительные цифры группы
+									//f12f12 – максимальная скорость ветра при порывах за прошедшие полусутки, заканчивающиеся в срок передачи группы
+			int Maximum_of_wind_speed = Convert::ToInt32(Wind_speed_maximum->Text);
+			
+			Wind_speed_maximum;
 			Summary += "530";
-
+			if (Maximum_of_wind_speed < 10)
+				Summary += "0" + Convert::ToString(Maximum_of_wind_speed);
+			else Summary += Convert::ToString(Maximum_of_wind_speed);
 			Summary += " ";
 
 
 			//7R24R24R24/
+									//7 – отличительная цифра группы
+									//R24R24R24 – количество осадков, выпавших за сутки
+									//  / – косая черта (ставится обязательно, чтобы группа была пятизначной, как все остальные)
+			double Rainfall_per_day1 = Convert::ToDouble(Day_rainfall->Text);
+			double Rainfall_per_day = Rainfall_per_day1;
+			if (Rainfall_per_day < 1)Rainfall_per_day = Rainfall_per_day * 10 + 990;
+			else if (Rainfall_per_day <= 989)Rainfall_per_day = (int)Rainfall_per_day;
+			else if (Rainfall_per_day > 989)Rainfall_per_day = 989;
 
-
+			
 			Summary += "7";
-
+			if (Rainfall_per_day < 10)Summary += "00" + Convert::ToString(Rainfall_per_day);
+			else if (Rainfall_per_day < 100)Summary += "0" + Convert::ToString(Rainfall_per_day);
+			else Summary += Convert::ToString(Rainfall_per_day);
 			Summary += "/ ";
 
 
 			//88R24R24R24
+									//88 – отличительные цифры группы
+									//R24R24R24 – количество осадков за сутки, составляющее 30 мм и более
 
-
-			Summary += "88";
-
-			Summary += " ";
+			if (Rainfall_per_day1 >= 30) 
+			{
+				Summary += "88";
+				if (Rainfall_per_day < 100)Summary += "0" + Convert::ToString(Rainfall_per_day);
+				else Summary += Convert::ToString(Rainfall_per_day);
+				Summary += " ";
+			}
+			
 
 
 
