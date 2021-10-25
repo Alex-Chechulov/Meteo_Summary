@@ -1,6 +1,8 @@
 ﻿#pragma once
-
-
+#include "Section_0.h"
+#include "Section_1.h"
+#include "Section_3.h"
+#include "Section_5.h"
 
 namespace MeteoSummary {
 
@@ -1550,10 +1552,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 
 		}
 #pragma endregion
-#include "Section_0.h"
-#include "Section_1.h"
-#include "Section_3.h"
-#include "Section_5.h"
+
 		void calculation()
 		{
 			//Раздел 0
@@ -1565,12 +1564,18 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			//YYGGiw Дата и срок наблюдения по ВСВ:
 									//YY – число месяца, GG – срок наблюдения в часах,
 									//iw – указатель единиц сообщаемой в сводке скорости ветра
-			Summary += YYGGiw(Data_calculation, Time_calculation, Type_speed, Type_speed_dimension);
+			String^ Data = Data_calculation->Text;
+			String^ Time = Time_calculation->Text;
+			String^ Type_speed_wind = Type_speed->Text;
+			String^ Type_speed_wind_dimension = Type_speed_dimension->Text;
+			Summary += YYGGiw(Data, Time, Type_speed_wind, Type_speed_wind_dimension);
 
 			//IIiii Индексный номер станции:
 									//II – номер района,
 									//iii – номер станции в пределах района II
-			Summary += IIiii(Number_district, Number_station);
+			String^ Number_of_district = Number_district->Text;
+			String^ Number_of_station = Number_station->Text;
+			Summary += IIiii(Number_of_district, Number_of_station);
 
 			//Раздел 1
 			//iRixhVV 
