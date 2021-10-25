@@ -2140,7 +2140,6 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 				}
 				//В период между сроками наблюдения(не получилось пока, тк нет выбора в срок или между сроками)
 				//Максимальная скорость ветра при порывах(ff) Nddff
-				ывыа
 
 				switch (Current_of_weather)
 				{
