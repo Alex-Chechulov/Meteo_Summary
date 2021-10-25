@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+
+
 namespace MeteoSummary {
 
 	using namespace System;
@@ -1548,41 +1550,27 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 
 		}
 #pragma endregion
+#include "Section_0.h"
+#include "Section_1.h"
+#include "Section_3.h"
+#include "Section_5.h"
 		void calculation()
 		{
 			//Раздел 0
 			//MiMiMjMj Буквенный указатель кода. Для информации, передаваемой в коде КН-01 SYNOP
 			String^ Summary;
 			String^ Code_letter_pointer = "AAXX";
-			Summary += Code_letter_pointer;
-			Summary += " ";
+			Summary += MiMiMjMj(Code_letter_pointer);
 
 			//YYGGiw Дата и срок наблюдения по ВСВ:
 									//YY – число месяца, GG – срок наблюдения в часах,
 									//iw – указатель единиц сообщаемой в сводке скорости ветра
-			String^ Data = Data_calculation->Text;
-			String^ Time = Time_calculation->Text;
-			String^ Type_speed_wind = Type_speed->Text;
-			String^ Type_speed_wind_dimension = Type_speed_dimension->Text;
-			int Type_wind = 0;
-			if (Type_speed_wind == Convert::ToString(Type_speed->Items[0]))Type_wind += 0;
-			else if (Type_speed_wind == Convert::ToString(Type_speed->Items[1]))Type_wind += 3;
-			if (Type_speed_wind_dimension == Convert::ToString(Type_speed_dimension->Items[0]))Type_wind += 0;
-			else if (Type_speed_wind_dimension == Convert::ToString(Type_speed_dimension->Items[1]))Type_wind += 1;
-			
-			Summary += Data;
-			Summary += Time;
-			Summary += Convert::ToString(Type_wind);
-			Summary += " ";
+			Summary += YYGGiw(Data_calculation, Time_calculation, Type_speed, Type_speed_dimension);
 
 			//IIiii Индексный номер станции:
 									//II – номер района,
 									//iii – номер станции в пределах района II
-			String ^Number_of_district = Number_district->Text;
-			String ^Number_of_station = Number_station->Text;
-			Summary += Number_of_district;
-			Summary += Number_of_station;
-			Summary += " ";
+			Summary += IIiii(Number_district, Number_station);
 
 			//Раздел 1
 			//iRixhVV 
