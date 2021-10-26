@@ -330,6 +330,8 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->Max_day_temperature = (gcnew System::Windows::Forms::TextBox());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->Day_rainfall = (gcnew System::Windows::Forms::TextBox());
+			this->label34 = (gcnew System::Windows::Forms::Label());
 			this->Wind_speed_maximum = (gcnew System::Windows::Forms::TextBox());
 			this->label33 = (gcnew System::Windows::Forms::Label());
 			this->Min_night_air_temperature = (gcnew System::Windows::Forms::TextBox());
@@ -338,8 +340,6 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->label31 = (gcnew System::Windows::Forms::Label());
 			this->Soil_temperature = (gcnew System::Windows::Forms::TextBox());
 			this->label30 = (gcnew System::Windows::Forms::Label());
-			this->label34 = (gcnew System::Windows::Forms::Label());
-			this->Day_rainfall = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
 			this->splitContainer1->Panel2->SuspendLayout();
@@ -426,7 +426,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabControl1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1072, 655);
+			this->tabControl1->Size = System::Drawing::Size(1070, 655);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPage1
@@ -444,7 +444,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->tabPage1->Size = System::Drawing::Size(1064, 622);
+			this->tabPage1->Size = System::Drawing::Size(1062, 622);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Раздел 0";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -591,7 +591,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->tabPage2->Size = System::Drawing::Size(1064, 622);
+			this->tabPage2->Size = System::Drawing::Size(1062, 622);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Раздел 1";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -1067,7 +1067,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage3->Location = System::Drawing::Point(4, 29);
 			this->tabPage3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(1064, 622);
+			this->tabPage3->Size = System::Drawing::Size(1062, 622);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Раздел 3";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -1422,10 +1422,29 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage4->Location = System::Drawing::Point(4, 29);
 			this->tabPage4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Size = System::Drawing::Size(1064, 622);
+			this->tabPage4->Size = System::Drawing::Size(1062, 622);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Раздел 5";
 			this->tabPage4->UseVisualStyleBackColor = true;
+			// 
+			// Day_rainfall
+			// 
+			this->Day_rainfall->Location = System::Drawing::Point(9, 277);
+			this->Day_rainfall->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->Day_rainfall->Name = L"Day_rainfall";
+			this->Day_rainfall->Size = System::Drawing::Size(70, 26);
+			this->Day_rainfall->TabIndex = 70;
+			this->Day_rainfall->Text = L"00,1";
+			// 
+			// label34
+			// 
+			this->label34->AutoSize = true;
+			this->label34->Location = System::Drawing::Point(5, 252);
+			this->label34->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label34->Name = L"label34";
+			this->label34->Size = System::Drawing::Size(321, 20);
+			this->label34->TabIndex = 16;
+			this->label34->Text = L"Количество осадков, выпавших за сутки:";
 			// 
 			// Wind_speed_maximum
 			// 
@@ -1503,25 +1522,6 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->label30->TabIndex = 8;
 			this->label30->Text = L"Температура подстилающей поверхности в срок наблюдения:";
 			// 
-			// label34
-			// 
-			this->label34->AutoSize = true;
-			this->label34->Location = System::Drawing::Point(5, 252);
-			this->label34->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label34->Name = L"label34";
-			this->label34->Size = System::Drawing::Size(321, 20);
-			this->label34->TabIndex = 16;
-			this->label34->Text = L"Количество осадков, выпавших за сутки:";
-			// 
-			// Day_rainfall
-			// 
-			this->Day_rainfall->Location = System::Drawing::Point(9, 277);
-			this->Day_rainfall->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->Day_rainfall->Name = L"Day_rainfall";
-			this->Day_rainfall->Size = System::Drawing::Size(70, 26);
-			this->Day_rainfall->TabIndex = 70;
-			this->Day_rainfall->Text = L"00,1";
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
@@ -1573,148 +1573,70 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			//IIiii Индексный номер станции:
 									//II – номер района,
 									//iii – номер станции в пределах района II
-			String^ Number_of_district = Number_district->Text;
-			String^ Number_of_station = Number_station->Text;
+			int Number_of_district = Convert::ToInt32(Number_district->Text);
+			int Number_of_station = Convert::ToInt32(Number_station->Text);
 			Summary += IIiii(Number_of_district, Number_of_station);
 
 			//Раздел 1
 			//iRixhVV 
 									//iR – указатель наличия в сводке группы 6RRRtR, указатель типа станции (обслуживаемая 
-									//персоналом или автоматическая) и наличия в сводке группы 7wwW1W2
+											//персоналом или автоматическая) и наличия в сводке группы 7wwW1W2
 									//h – высота нижней границы самых низких облаков(CL или CM);
 									//VV – метеорологическая дальность видимости
-			int Availability_6RRRtr = Group_6RRRtr->SelectedIndex;
-			String^ Ok_6RRRtr;
-			Ok_6RRRtr = Convert::ToString(Availability_6RRRtr);
+			
+			
+			//int Ok_6RRRtr = Group_6RRRtr->SelectedIndex;
+			//String^ Ok_6RRRtr;
+			//Ok_6RRRtr = Convert::ToString(Availability_6RRRtr);
 
-			String^ Availability_wwW1W2 = Group_7wwW1W2->Text;
-			String^ Type_of_station = Type_station->Text;
-			int Ok_wwW1W2 = 0;
-			if (Availability_wwW1W2 == Convert::ToString(Group_7wwW1W2->Items[0])) Ok_wwW1W2 =1;
-			else if (Availability_wwW1W2 == Convert::ToString(Group_7wwW1W2->Items[1])) Ok_wwW1W2 =2;
-			else if (Availability_wwW1W2 == Convert::ToString(Group_7wwW1W2->Items[2])) Ok_wwW1W2 =3;
-			if (Type_of_station == Convert::ToString(Type_station->Items[0])) Ok_wwW1W2 +=0;
-			else if (Type_of_station == Convert::ToString(Type_station->Items[1])) Ok_wwW1W2 +=3;
-
-
-			String^ Ok_Cloud_height = Cloud_height->Text;
-			int Height_of_cloud;
-			if (Ok_Cloud_height != "/") {
-				Height_of_cloud = Convert::ToInt32(Ok_Cloud_height);
-				if (Height_of_cloud < 50)Ok_Cloud_height = "0";
-				else if (Height_of_cloud <= 100)Ok_Cloud_height = "1";
-				else if (Height_of_cloud <= 200)Ok_Cloud_height = "2";
-				else if (Height_of_cloud <= 300)Ok_Cloud_height = "3";
-				else if (Height_of_cloud <= 600)Ok_Cloud_height = "4";
-				else if (Height_of_cloud <= 1000)Ok_Cloud_height = "5";
-				else if (Height_of_cloud <= 1500)Ok_Cloud_height = "6";
-				else if (Height_of_cloud <= 2000)Ok_Cloud_height = "7";
-				else if (Height_of_cloud <= 2500)Ok_Cloud_height = "8";
-				else if (Height_of_cloud > 2500)Ok_Cloud_height = "9";
-			}
 			
 
-			double Visibility_range_cloud = Convert::ToDouble(Visibility_range->Text);
-			int Ok_Visibility_range_cloud=0;
-			if (Visibility_range_cloud <= 5.0)Ok_Visibility_range_cloud = 10 * Visibility_range_cloud;
-			else if (Visibility_range_cloud <= 30.0)Ok_Visibility_range_cloud = 50 + Visibility_range_cloud;
-			else if (Visibility_range_cloud <= 70.0)Ok_Visibility_range_cloud = (Visibility_range_cloud - 30) / 5 + 80;
-			else if (Visibility_range_cloud <= 70.0)Ok_Visibility_range_cloud = 89;
-			Summary += Ok_6RRRtr;
-			Summary += Convert::ToString(Ok_wwW1W2);
-			Summary += Ok_Cloud_height;
-			if(Ok_Visibility_range_cloud<10)
-			Summary += "0"+Convert::ToString(Ok_Visibility_range_cloud);
-			else Summary += Convert::ToString(Ok_Visibility_range_cloud);
-			Summary += " ";
+			String^ Availability_6RRRtr = Group_6RRRtr->Text;
+			String^ Availability_7wwW1W2 = Group_7wwW1W2->Text;
+			String^ Type_of_station = Type_station->Text;
+			String^ Ok_Cloud_height = Cloud_height->Text;
+			String^ OkS_Visibility_range_cloud = Visibility_range->Text;
+			Summary += iRixhVV(Availability_6RRRtr, Availability_7wwW1W2, Type_of_station, Ok_Cloud_height, OkS_Visibility_range_cloud);
 
 			//Nddff
 									//N – общее количество облаков всех ярусов
 									//среднее направление ветра в срок наблюдения
 									//средняя скорость ветра в срок наблюдения в м/с 
-			int Number_of_clouds = Number_clouds->SelectedIndex;
-			String^ Ok_Number_of_clouds;
-			if (Number_of_clouds <= 9)Ok_Number_of_clouds = Convert::ToString(Number_of_clouds);
-			else Ok_Number_of_clouds = "/";
-
-			int Direction_of_wind = Convert::ToInt32(Direction_wind->Text);
-			if (Direction_of_wind <= 4)Direction_of_wind = 360;
-			Direction_of_wind = ((Direction_of_wind - 5) / 10) + 1;
-			int Speed_of_wind = Convert::ToInt32(Speed_wind->Text);
-
-			Summary += Ok_Number_of_clouds;
-			if (Direction_of_wind < 10)
-				Summary += "0" + Convert::ToString(Direction_of_wind);
-			else Summary += Convert::ToString(Direction_of_wind);
-			if (Speed_of_wind < 10)
-				Summary += "0" + Convert::ToString(Speed_of_wind);
-			else Summary += Convert::ToString(Speed_of_wind);
-			Summary += " ";
+			String^ Number_of_clouds = Number_clouds->Text;
+			String^ Ok_Direction_of_wind = Direction_wind->Text;
+			String^ Ok_Speed_of_wind = Speed_wind->Text;
+			Summary+= Nddff(Number_of_clouds, Ok_Direction_of_wind, Ok_Speed_of_wind);
 
 			//1snTTT
 									//1 - отличительная цифра группы
 									//температура воздуха (sn – знак, TTT – значение в градусах Цельсия с точностью до десятых долей градуса)
-			double Temperature_of_air = Convert::ToDouble(Air_temperature->Text);
-			String^ Sign="0";
-			if (Temperature_of_air < 0) {
-				Sign = "1";
-				Temperature_of_air = -Temperature_of_air;
-			}
-
-			Summary += "1";
-			if (Temperature_of_air < 1.0) Summary += Sign + "0" + "0" + Convert::ToString(Temperature_of_air * 10.0);
-			else if (Temperature_of_air < 10.0) Summary += Sign + "0" + Convert::ToString(Temperature_of_air * 10.0);
-			else Summary += Sign + Convert::ToString(Temperature_of_air * 10.0); 
-			Summary += " ";
+			String^ Ok_Temperature_of_air = Air_temperature->Text;
+			Summary += Struct_1snTTT(Ok_Temperature_of_air);
 
 			//2snTdTdTd
 									//2 – отличительная цифра группы
 									//snTdTdTd – точка росы (sn – знак, TdTdTd – значение в градусах Цельсия с точностью до десятых долей).
-			double Point_of_dew = Convert::ToDouble(Dew_point->Text);
-			Sign = "0";
-			if (Point_of_dew < 0) {
-				Sign = "1";
-				Point_of_dew = -Point_of_dew;
-			}
-
-			Summary += "2";
-			if (Point_of_dew < 1.0) Summary += Sign + "0" + "0" + Convert::ToString(Point_of_dew * 10.0);
-			else if (Point_of_dew < 10.0) Summary += Sign + "0" + Convert::ToString(Point_of_dew * 10.0);
-			else Summary += Sign + Convert::ToString(Point_of_dew * 10.0);
-			Summary += " ";
-
+			String^ Ok_Point_of_dew = Dew_point->Text;
+			Summary += Struct_2snTdTdTd(Ok_Point_of_dew);
+			
 			// 3PoPoPoPo
 									//3 – отличительная цифра группы
 									//PoPoPoPo – давление воздуха на уровне станции в гПа с точностью до десятых долей
-			double Air_pressure_on_station = Convert::ToDouble(Air_pressure_station->Text);
-			Air_pressure_on_station = Air_pressure_on_station - 1000;
-
-			Summary += "3";
-			if(Air_pressure_on_station<1)Summary += "000"+Convert::ToString(Air_pressure_on_station*10);
-			else if(Air_pressure_on_station<10)Summary += "00"+Convert::ToString(Air_pressure_on_station*10);
-			else if(Air_pressure_on_station<100)Summary += "0"+Convert::ToString(Air_pressure_on_station*10);
-			else Summary += Convert::ToString(Air_pressure_on_station*10);
-			Summary += " ";
+			String^ Ok_Air_pressure_on_station = Air_pressure_station->Text;
+			Summary += Struct_3PoPoPoPo(Ok_Air_pressure_on_station);
 
 			//4PPPP
 									//4 – отличительная цифра группы
 									//PPPP – давление воздуха, приведенное к среднему уровню моря, в гПа с точностью до десятых долей
-			double Air_pressure_on_sea_level = Convert::ToDouble(Air_pressure_sea_level->Text);
-			Air_pressure_on_sea_level = Air_pressure_on_sea_level - 1000;
+			String^ Ok_Air_pressure_on_sea_level = Air_pressure_sea_level->Text;
+			Summary += Struct_4PPPP(Ok_Air_pressure_on_sea_level);
 
-			Summary += "4";
-			if (Air_pressure_on_sea_level < 1)Summary += "000" + Convert::ToString(Air_pressure_on_sea_level * 10);
-			else if (Air_pressure_on_sea_level < 10)Summary += "00" + Convert::ToString(Air_pressure_on_sea_level * 10);
-			else if (Air_pressure_on_sea_level < 100)Summary += "0" + Convert::ToString(Air_pressure_on_sea_level * 10);
-			else Summary += Convert::ToString(Air_pressure_on_sea_level * 10);
-			Summary += " ";
 			//4a3hhh пока нет, тк я не понял, что имеется ввиду или, или
 			
 			//5appp 
 									//5 – отличительная цифра группы
 									//a – характеристика барической тенденции за последние 3 часа;
 									//ppp – значение барической тенденции за последние 3 часа в гПа с точностью до десятых долей. 
-			Summary += "5";
 			int Characteristic_of_baric_tendency = Baric_tendency_characteristic->SelectedIndex;
 			if (Characteristic_of_baric_tendency == 0)Characteristic_of_baric_tendency = 0;
 			else if (Characteristic_of_baric_tendency == 1|| Characteristic_of_baric_tendency == 2)Characteristic_of_baric_tendency = 1;
@@ -1728,6 +1650,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 
 			double Value_of_pressere_trend = Convert::ToDouble(Pressure_trend_value->Text);
 
+			Summary += "5";
 			Summary += Convert::ToString(Characteristic_of_baric_tendency);
 			if (Value_of_pressere_trend < 1)Summary += "00" + Convert::ToString(Value_of_pressere_trend * 10);
 			else if (Value_of_pressere_trend < 10)Summary += "0" + Convert::ToString(Value_of_pressere_trend * 10);
@@ -1738,7 +1661,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//6 – отличительная цифра группы
 									//RRR – количество осадков, выпавших за период tR
 									//tR – продолжительность периода, за который измерено количество осадков, указанное на месте RRR
-			if (Availability_6RRRtr == 0 || Availability_6RRRtr == 1)
+			if (Ok_6RRRtr == 0 || Ok_6RRRtr == 1)
 			{
 				double Number_of_precipitation = Convert::ToDouble(Rainfall->Text);
 				if (Number_of_precipitation < 1)Number_of_precipitation = Number_of_precipitation * 10 + 990;
@@ -1763,16 +1686,17 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//ww – текущая погода (погода в срок наблюдения или в течение последнего часа перед сроком наблюдения)
 									//W1W2 - прошедшая погода (погода в период между сроками наблюдений)
 			int Current_of_weather = Current_weather->SelectedIndex;
-			int Past_of_weather = Past_weather->SelectedIndex;
+			int Past_of_weather = Past_weather->SelectedIndex;			
+			if (Ok_7wwW1W2 == 1)
+			{
+				Summary += "7";
+				if (Current_of_weather < 10)Summary += "0" + Convert::ToString(Current_of_weather);
+				else Summary += Convert::ToString(Current_of_weather);
+				if (Past_of_weather < 10)Summary += "0" + Convert::ToString(Past_of_weather);
+				else Summary += Convert::ToString(Past_of_weather);
 
-			Summary += "7";
-			if (Current_of_weather < 10)Summary += "0" + Convert::ToString(Current_of_weather);
-			else Summary += Convert::ToString(Current_of_weather);
-			if (Past_of_weather < 10)Summary += "0" + Convert::ToString(Past_of_weather);
-			else Summary += Convert::ToString(Past_of_weather);
-
-			Summary += " ";
-
+				Summary += " ";
+			}
 			//8NhCLCMCH
 									//8 – отличительная цифра группы
 									//Nh – количество облаков CL или CM, если облаков CL нет
@@ -1816,7 +1740,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//TxTxTx – значение в градусах Цельсия с точностью до десятых долей градуса
 
 			double Max_temperature_of_day = Convert::ToDouble(Max_day_temperature->Text);
-			Sign = "0";
+			String^ Sign = "0";
 			if (Max_temperature_of_day < 0) {
 				Sign = "1";
 				Max_temperature_of_day = -Max_temperature_of_day;
@@ -1908,7 +1832,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 
 			//6RRRtR
 									//аналогична группе 6RRRtR в разделе 1
-			if (Availability_6RRRtr == 0 || Availability_6RRRtr == 2)
+			if (Ok_6RRRtr == 0 || Ok_6RRRtr == 2)
 			{
 				double Number_of_precipitation = Convert::ToDouble(Rainfall->Text);
 				if (Number_of_precipitation < 1)Number_of_precipitation = Number_of_precipitation * 10 + 990;
@@ -1934,7 +1858,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//характеристики облачности того слоя или той облачной массы, высота которых сообщена на месте hshs
 									//Ns – количество облачности
 									//C − форма облаков
-			if (Number_of_clouds != 0 && Number_of_clouds != 9 && Number_of_clouds != 10)
+			if (Ok_Number_of_clouds != 0 && Ok_Number_of_clouds != 9 && Ok_Number_of_clouds != 10)
 			{
 				int Measurements_of_NGO = NGO_measurements->SelectedIndex;
 				if (Measurements_of_NGO == 0) 
@@ -1963,7 +1887,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 					Summary += " ";
 				}
 			}
-
+			//проверить сводку 9 на случай включения, тк я кажется налажал
 			//9SРSPspsp
 									//9 – отличительная цифра группы
 									//SPSPspsp – дополнительная информация о погоде в срок и между сроками наблюдения
@@ -2123,37 +2047,33 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 					Summary += Ok_Additional_information_of_weather_2;
 					Summary += " ";
 				}
-				if (Speed_of_wind >= 10)
-				{
-					Summary += "910";
-					if (Speed_of_wind < 10)
-						Summary += "0" + Convert::ToString(Speed_of_wind);
-					else Summary += Convert::ToString(Speed_of_wind);
-					Summary += " ";
-				}
-				//В период между сроками наблюдения(не получилось пока, тк нет выбора в срок или между сроками)
-				//Максимальная скорость ветра при порывах(ff) Nddff
-
-				switch (Current_of_weather)
-				{
-				case 41:
-				case 42:
-				case 43:
-				case 44:
-				case 45:
-				case 46:
-				case 47:
-				case 48:
-				case 49:
-					Summary += "960"+Convert::ToString(Current_of_weather);
-					Summary += " ";
-					break;
-				default:
-					break;
-				}
-				
 			}
+			if (Speed_of_wind >= 10)
+			{
+				Summary += "910";
+				Summary += Convert::ToString(Speed_of_wind);
+				Summary += " ";
+			}
+			//В период между сроками наблюдения(не получилось пока, тк нет выбора в срок или между сроками)
+			//Максимальная скорость ветра при порывах(ff) Nddff
 
+			switch (Current_of_weather)
+			{
+			case 41:
+			case 42:
+			case 43:
+			case 44:
+			case 45:
+			case 46:
+			case 47:
+			case 48:
+			case 49:
+				Summary += "960" + Convert::ToString(Current_of_weather);
+				Summary += " ";
+				break;
+			default:
+				break;
+			}
 
 			//Раздел 5
 									//Отличительная группа раздела 5
