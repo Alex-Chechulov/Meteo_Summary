@@ -19,4 +19,8 @@ String ^ Struct_2snTdTdTd(String ^ Ok_Point_of_dew);
 String^ Struct_3PoPoPoPo(String^ Ok_Air_pressure_on_station);
 
 String^ Struct_4PPPP(String^ Ok_Air_pressure_on_sea_level);
+
+String^ Struct_5appp(String^ Ok_Characteristic_of_baric_tendency, String^ Ok_Value_of_pressere_trend);
+
+String^ Struct_6RRRtR(String^ Ok_Number_of_precipitation, String^ Duration_of_precipitation);
 #endif

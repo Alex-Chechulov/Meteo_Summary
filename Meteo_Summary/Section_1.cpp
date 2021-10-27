@@ -155,4 +155,74 @@ String ^ Struct_4PPPP(String^ Ok_Air_pressure_on_sea_level)
 	Summary += " ";
 	return Summary;
 }
+String^ Struct_5appp(String^ Ok_Characteristic_of_baric_tendency,String^ Ok_Value_of_pressere_trend)
+{
+	String^ Summary;
 
+	int Characteristic_of_baric_tendency;
+	if (Ok_Characteristic_of_baric_tendency == "Рост затем падение(рост больше падения)")Characteristic_of_baric_tendency = 0;
+	else if (Ok_Characteristic_of_baric_tendency == "Рост затем без изменения")Characteristic_of_baric_tendency = 1;
+	else if (Ok_Characteristic_of_baric_tendency == "Рост затем менее сильный рост")Characteristic_of_baric_tendency = 2;
+	else if (Ok_Characteristic_of_baric_tendency == "Рост (равномерный или неравномерный)")Characteristic_of_baric_tendency = 3;
+	else if (Ok_Characteristic_of_baric_tendency == "Падение затем рост(рост больше падения)")Characteristic_of_baric_tendency = 4;
+	else if (Ok_Characteristic_of_baric_tendency == "Без изменения затем рост")Characteristic_of_baric_tendency = 5;
+	else if (Ok_Characteristic_of_baric_tendency == "Рост затем более сильный рост")Characteristic_of_baric_tendency = 6;
+	else if (Ok_Characteristic_of_baric_tendency == "Ровный (или неровный) ход")Characteristic_of_baric_tendency = 7;
+	else if (Ok_Characteristic_of_baric_tendency == "Падение затем рост(падение больше роста)")Characteristic_of_baric_tendency = 8;
+	else if (Ok_Characteristic_of_baric_tendency == "Падение затем без изменения")Characteristic_of_baric_tendency = 9;
+	else if (Ok_Characteristic_of_baric_tendency == "Падение затем менее сильное падение")Characteristic_of_baric_tendency = 10;
+	else if (Ok_Characteristic_of_baric_tendency == "Падение (равномерное или неравномерное)")Characteristic_of_baric_tendency = 11;
+	else if (Ok_Characteristic_of_baric_tendency == "Рост затем падение(падение больше роста)")Characteristic_of_baric_tendency = 12;
+	else if (Ok_Characteristic_of_baric_tendency == "Без изменения затем падение")Characteristic_of_baric_tendency = 13;
+	else if (Ok_Characteristic_of_baric_tendency == "Падение затем более сильное падение")Characteristic_of_baric_tendency = 14;
+
+	if (Characteristic_of_baric_tendency == 0)Characteristic_of_baric_tendency = 0;
+	else if (Characteristic_of_baric_tendency == 1 || Characteristic_of_baric_tendency == 2)Characteristic_of_baric_tendency = 1;
+	else if (Characteristic_of_baric_tendency == 3)Characteristic_of_baric_tendency = 2;
+	else if (Characteristic_of_baric_tendency == 4 || Characteristic_of_baric_tendency == 5 || Characteristic_of_baric_tendency == 6)Characteristic_of_baric_tendency = 3;
+	else if (Characteristic_of_baric_tendency == 7)Characteristic_of_baric_tendency = 4;
+	else if (Characteristic_of_baric_tendency == 8)Characteristic_of_baric_tendency = 5;
+	else if (Characteristic_of_baric_tendency == 9 || Characteristic_of_baric_tendency == 10)Characteristic_of_baric_tendency = 6;
+	else if (Characteristic_of_baric_tendency == 11)Characteristic_of_baric_tendency = 7;
+	else if (Characteristic_of_baric_tendency == 12 || Characteristic_of_baric_tendency == 13 || Characteristic_of_baric_tendency == 14)Characteristic_of_baric_tendency = 8;
+
+	double Value_of_pressere_trend = Convert::ToDouble(Ok_Value_of_pressere_trend);
+
+	Summary += "5";
+	Summary += Convert::ToString(Characteristic_of_baric_tendency);
+	if (Value_of_pressere_trend < 1)Summary += "00" + Convert::ToString(Value_of_pressere_trend * 10);
+	else if (Value_of_pressere_trend < 10)Summary += "0" + Convert::ToString(Value_of_pressere_trend * 10);
+	else Summary += Convert::ToString(Value_of_pressere_trend * 10);
+	Summary += " ";
+
+	return Summary;
+}
+String ^ Struct_6RRRtR(String ^ Ok_Number_of_precipitation, String ^ Duration_of_precipitation)
+{
+	String^ Summary;
+	double Number_of_precipitation = Convert::ToDouble(Ok_Number_of_precipitation);
+	if (Number_of_precipitation < 1)Number_of_precipitation = Number_of_precipitation * 10 + 990;
+	else if (Number_of_precipitation <= 989)Number_of_precipitation = (int)Number_of_precipitation;
+	else if (Number_of_precipitation > 989)Number_of_precipitation = 989;
+	
+	String^ Ok_Duration_of_precipitation;
+	if (Duration_of_precipitation == "6")Ok_Duration_of_precipitation = "1";
+	else if (Duration_of_precipitation == "12")Ok_Duration_of_precipitation = "2";
+	else if (Duration_of_precipitation == "18")Ok_Duration_of_precipitation = "3";
+	else if (Duration_of_precipitation == "24")Ok_Duration_of_precipitation = "4";
+	else if (Duration_of_precipitation == "1")Ok_Duration_of_precipitation = "5";
+	else if (Duration_of_precipitation == "2")Ok_Duration_of_precipitation = "6";
+	else if (Duration_of_precipitation == "3")Ok_Duration_of_precipitation = "7";
+	else if (Duration_of_precipitation == "9")Ok_Duration_of_precipitation = "8";
+	else if (Duration_of_precipitation == "15")Ok_Duration_of_precipitation = "9";
+	else Ok_Duration_of_precipitation = "/";
+
+	Summary += "6";
+	if (Number_of_precipitation < 10)Summary += "00" + Convert::ToString(Number_of_precipitation);
+	else if (Number_of_precipitation < 100)Summary += "0" + Convert::ToString(Number_of_precipitation);
+	else Summary += Convert::ToString(Number_of_precipitation);
+	Summary += Ok_Duration_of_precipitation;
+	Summary += " ";
+
+	return Summary;
+}

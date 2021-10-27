@@ -4,6 +4,8 @@
 #include "Section_3.h"
 #include "Section_5.h"
 
+#include "vector"
+
 namespace MeteoSummary {
 
 	using namespace System;
@@ -1637,25 +1639,10 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//5 – отличительная цифра группы
 									//a – характеристика барической тенденции за последние 3 часа;
 									//ppp – значение барической тенденции за последние 3 часа в гПа с точностью до десятых долей. 
-			int Characteristic_of_baric_tendency = Baric_tendency_characteristic->SelectedIndex;
-			if (Characteristic_of_baric_tendency == 0)Characteristic_of_baric_tendency = 0;
-			else if (Characteristic_of_baric_tendency == 1|| Characteristic_of_baric_tendency == 2)Characteristic_of_baric_tendency = 1;
-			else if (Characteristic_of_baric_tendency == 3)Characteristic_of_baric_tendency = 2;
-			else if (Characteristic_of_baric_tendency == 4|| Characteristic_of_baric_tendency == 5|| Characteristic_of_baric_tendency == 6)Characteristic_of_baric_tendency = 3;
-			else if (Characteristic_of_baric_tendency == 7)Characteristic_of_baric_tendency = 4;
-			else if (Characteristic_of_baric_tendency == 8)Characteristic_of_baric_tendency = 5;
-			else if (Characteristic_of_baric_tendency == 9 || Characteristic_of_baric_tendency == 10)Characteristic_of_baric_tendency = 6;
-			else if (Characteristic_of_baric_tendency == 11)Characteristic_of_baric_tendency = 7;
-			else if (Characteristic_of_baric_tendency == 12 || Characteristic_of_baric_tendency == 13 || Characteristic_of_baric_tendency == 14)Characteristic_of_baric_tendency = 8;
 
-			double Value_of_pressere_trend = Convert::ToDouble(Pressure_trend_value->Text);
-
-			Summary += "5";
-			Summary += Convert::ToString(Characteristic_of_baric_tendency);
-			if (Value_of_pressere_trend < 1)Summary += "00" + Convert::ToString(Value_of_pressere_trend * 10);
-			else if (Value_of_pressere_trend < 10)Summary += "0" + Convert::ToString(Value_of_pressere_trend * 10);
-			else Summary += Convert::ToString(Value_of_pressere_trend * 10);
-			Summary += " ";
+			String^ Ok_Characteristic_of_baric_tendency = Baric_tendency_characteristic->Text;
+			String^ Ok_Value_of_pressere_trend = Pressure_trend_value->Text;
+			Summary += Struct_5appp(Ok_Characteristic_of_baric_tendency, Ok_Value_of_pressere_trend);
 
 			//6RRRtR
 									//6 – отличительная цифра группы
@@ -1663,22 +1650,9 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//tR – продолжительность периода, за который измерено количество осадков, указанное на месте RRR
 			if (Ok_6RRRtr == 0 || Ok_6RRRtr == 1)
 			{
-				double Number_of_precipitation = Convert::ToDouble(Rainfall->Text);
-				if (Number_of_precipitation < 1)Number_of_precipitation = Number_of_precipitation * 10 + 990;
-				else if (Number_of_precipitation <= 989)Number_of_precipitation = (int)Number_of_precipitation;
-				else if (Number_of_precipitation > 989)Number_of_precipitation = 989;
-
-				int Duration_of_precipitation = Precipitation_duration->SelectedIndex;
-				String^ Ok_Duration_of_precipitation;
-				if (Duration_of_precipitation <= 8)Ok_Duration_of_precipitation = Convert::ToString(Duration_of_precipitation + 1);
-				else Ok_Duration_of_precipitation = "/";
-
-				Summary += "6";
-				if (Number_of_precipitation < 10)Summary += "00" + Convert::ToString(Number_of_precipitation);
-				else if (Number_of_precipitation < 100)Summary += "0" + Convert::ToString(Number_of_precipitation);
-				else Summary += Convert::ToString(Number_of_precipitation);
-				Summary += Ok_Duration_of_precipitation;
-				Summary += " ";
+				String^ Ok_Number_of_precipitation = Rainfall->Text;
+				String^ Duration_of_precipitation = Precipitation_duration->Text;
+				Summary += Struct_6RRRtR( Ok_Number_of_precipitation, Duration_of_precipitation);
 			}
 
 			//7wwW1W2
