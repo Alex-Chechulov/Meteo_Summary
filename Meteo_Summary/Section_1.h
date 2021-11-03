@@ -23,4 +23,10 @@ String^ Struct_4PPPP(String^ Ok_Air_pressure_on_sea_level);
 String^ Struct_5appp(String^ Ok_Characteristic_of_baric_tendency, String^ Ok_Value_of_pressere_trend);
 
 String^ Struct_6RRRtR(String^ Ok_Number_of_precipitation, String^ Duration_of_precipitation);
+
+extern int Current_of_weather;
+extern int Past_of_weather;
+String^ Struct_7wwW1W2(String^ Ok_Current_of_weather, String^ Ok_Past_of_weather);
+
+String^ Struct_8NhCLCMCH(String^ Exact_amount_of_clouds, String^ Basement_of_clouds, String^ Middle_layer_of_clouds, String^ Top_of_cloud);
 #endif

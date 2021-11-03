@@ -1659,90 +1659,40 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//7 – отличительная цифра группы
 									//ww – текущая погода (погода в срок наблюдения или в течение последнего часа перед сроком наблюдения)
 									//W1W2 - прошедшая погода (погода в период между сроками наблюдений)
-			int Current_of_weather = Current_weather->SelectedIndex;
-			int Past_of_weather = Past_weather->SelectedIndex;			
-			if (Ok_7wwW1W2 == 1)
-			{
-				Summary += "7";
-				if (Current_of_weather < 10)Summary += "0" + Convert::ToString(Current_of_weather);
-				else Summary += Convert::ToString(Current_of_weather);
-				if (Past_of_weather < 10)Summary += "0" + Convert::ToString(Past_of_weather);
-				else Summary += Convert::ToString(Past_of_weather);
+			String^ Ok_Current_of_weather = Current_weather->Text;
+			String^ Ok_Past_of_weather = Past_weather->Text;
+			Summary += Struct_7wwW1W2(Ok_Current_of_weather, Ok_Past_of_weather);
 
-				Summary += " ";
-			}
 			//8NhCLCMCH
 									//8 – отличительная цифра группы
 									//Nh – количество облаков CL или CM, если облаков CL нет
 									//CL – облака вертикального развития и облака нижнего яруса(кроме слоистодождевых)
 									//CM – облака среднего яруса и слоисто-дождевые облака
 									//CH – облака верхнего яруса
-			int Exact_amount_of_clouds = Clouds_exact_amount->SelectedIndex;
-			String^ Ok_Exact_amount_of_clouds;
-			if (Exact_amount_of_clouds <= 9)Ok_Exact_amount_of_clouds = Convert::ToString(Exact_amount_of_clouds);
-			else Ok_Exact_amount_of_clouds = "/";
+			String^ Exact_amount_of_clouds = Clouds_exact_amount->Text;
+			String^ Basement_of_clouds = Clouds_basement->Text;
+			String^ Middle_layer_of_clouds = Clouds_middle_layer->Text;
+			String^ Top_of_cloud = Cloud_top->Text;
+			Summary += Struct_8NhCLCMCH(Exact_amount_of_clouds, Basement_of_clouds, Middle_layer_of_clouds, Top_of_cloud);
 
-			int Basement_of_clouds = Clouds_basement->SelectedIndex;
-			String^ Ok_Basement_of_clouds;
-			if (Basement_of_clouds <= 9)Ok_Basement_of_clouds = Convert::ToString(Basement_of_clouds);
-			else Ok_Basement_of_clouds = "/";
-
-			int Middle_layer_of_clouds = Clouds_middle_layer->SelectedIndex;
-			String^ Ok_Middle_layer_of_clouds;
-			if (Middle_layer_of_clouds <= 9)Ok_Middle_layer_of_clouds = Convert::ToString(Middle_layer_of_clouds);
-			else Ok_Middle_layer_of_clouds = "/";
-			
-			int Top_of_cloud = Cloud_top->SelectedIndex;
-			String^ Ok_Top_of_cloud;
-			if (Top_of_cloud <= 9)Ok_Top_of_cloud = Convert::ToString(Top_of_cloud);
-			else Ok_Top_of_cloud = "/";
-			
-			Summary += "8";
-			Summary += Ok_Exact_amount_of_clouds;
-			Summary += Ok_Basement_of_clouds;
-			Summary += Ok_Middle_layer_of_clouds;
-			Summary += Ok_Top_of_cloud;
-			Summary += " ";
 			//Раздел 3
 									//Отличительная группа раздела 3
-			Summary += "333";
-			Summary += " ";
+			Summary += Struct_333();
 			//1snTxTxTx
 									//1 – отличительная цифра группы
 									//snTxTxTx – максимальная температура воздуха за день
 									//sn – знак температуры
 									//TxTxTx – значение в градусах Цельсия с точностью до десятых долей градуса
-
-			double Max_temperature_of_day = Convert::ToDouble(Max_day_temperature->Text);
-			String^ Sign = "0";
-			if (Max_temperature_of_day < 0) {
-				Sign = "1";
-				Max_temperature_of_day = -Max_temperature_of_day;
-			}
-
-			Summary += "1";
-			if (Max_temperature_of_day < 1.0) Summary += Sign + "0" + "0" + Convert::ToString(Max_temperature_of_day * 10.0);
-			else if (Max_temperature_of_day < 10.0) Summary += Sign + "0" + Convert::ToString(Max_temperature_of_day * 10.0);
-			else Summary += Sign + Convert::ToString(Max_temperature_of_day * 10.0);
-			Summary += " ";
+			String^ Ok_Max_temperature_of_day = Max_day_temperature->Text;
+			Summary += Struct_1snTxTxTx(Ok_Max_temperature_of_day);
 
 			//2snTnTnTn
 									//2 – отличительная цифра группы
 									//snTnTnTn – минимальная температура воздуха за ночь
 									//sn – знак температуры
 									//TnTnTn – значение в градусах Цельсия с точностью до десятых долей градуса
-			double Min_temperature_of_day = Convert::ToDouble(Min_day_temperature->Text);
-			Sign = "0";
-			if (Min_temperature_of_day < 0) {
-				Sign = "1";
-				Min_temperature_of_day = -Min_temperature_of_day;
-			}
-
-			Summary += "2";
-			if (Min_temperature_of_day < 1.0) Summary += Sign + "0" + "0" + Convert::ToString(Min_temperature_of_day * 10.0);
-			else if (Min_temperature_of_day < 10.0) Summary += Sign + "0" + Convert::ToString(Min_temperature_of_day * 10.0);
-			else Summary += Sign + Convert::ToString(Min_temperature_of_day * 10.0);
-			Summary += " ";
+			String^ Ok_Min_temperature_of_day = Min_day_temperature->Text;
+			Summary += Struct_2snTnTnTn(Ok_Min_temperature_of_day);
 
 			//3EsnTgTg
 									//3 – отличительная цифра группы
@@ -1750,80 +1700,31 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//snTgTg – минимальная температура поверхности почвы за ночь 
 									//sn – знак температуры
 									//TgTg – значение в градусах Цельсия с точностью до одного градуса
-			int Condition_of_soil_surfase = Soil_surface_condition->SelectedIndex;
-			String^ Ok_Condition_of_soil_surfase;
-			if (Condition_of_soil_surfase <= 9)Ok_Condition_of_soil_surfase = Convert::ToString(Condition_of_soil_surfase);
-			else Ok_Condition_of_soil_surfase = "/";
-
-			int Temperature_of_night_soil = Convert::ToInt32(Night_soil_temperature->Text);
-			Sign = "0";
-			if (Temperature_of_night_soil < 0) {
-				Sign = "1";
-				Temperature_of_night_soil = -Temperature_of_night_soil;
-			}
-						
-			Summary += "3";
-			Summary += Ok_Condition_of_soil_surfase;
-			if (Temperature_of_night_soil < 10.0) Summary += Sign + "0" + Convert::ToString(Temperature_of_night_soil);
-			else Summary += Sign + Convert::ToString(Temperature_of_night_soil);
-			Summary += " ";
+			String^ Condition_of_soil_surfase = Soil_surface_condition->Text;
+			String^ Ok_Temperature_of_night_soil = Night_soil_temperature->Text;
+			Summary += Struct_3EsnTgTg(Condition_of_soil_surfase, Ok_Temperature_of_night_soil);
 
 			//4E'sss
 									//4 – отличительная цифра группы
 									//E' – состояние подстилающей поверхности при наличии снежного покрова
 									//sss – высота снежного покрова
-			int Condition_of_snow = Snow_condition->SelectedIndex;
-			String^ Ok_Condition_of_snow;
-			if (Condition_of_snow <= 9)Ok_Condition_of_snow = Convert::ToString(Condition_of_snow);
-			else Ok_Condition_of_snow = "/";
-			
+			String^ Condition_of_snow = Snow_condition->Text;
 			String^ Ok_Height_of_snow = Snow_height->Text;
-			int Height_of_snow;
-			if (Ok_Height_of_snow == "!5")Height_of_snow = 997;
-			else if (Ok_Height_of_snow == "->1")Height_of_snow = 998;
-			else if (Ok_Height_of_snow == "/")Height_of_snow = 999;
-			else Height_of_snow = Convert::ToInt32(Ok_Height_of_snow);
-			
-
-			Summary += "4";
-			Summary += Ok_Condition_of_snow;
-			if (Height_of_snow < 10)Summary += "00" + Convert::ToString(Height_of_snow);
-			else if (Height_of_snow < 100)Summary += "0" + Convert::ToString(Height_of_snow);
-			else Summary += Convert::ToString(Height_of_snow);
-			Summary += " ";
+			Summary += Struct_4Esss(Condition_of_snow, Ok_Height_of_snow);
 
 			//55SSS
 									//55 – отличительные цифры группы
 									//SSS – продолжительность солнечного сияния за сутки в часах с точностью до десятых долей часа.
-			double Duration_of_sunshine = Convert::ToDouble(Sunshine_duration->Text);
-			
-
-			Summary += "55";
-			if (Duration_of_sunshine < 1.0) Summary += "0" + "0" + Convert::ToString(Duration_of_sunshine * 10.0);
-			else if (Duration_of_sunshine < 10.0) Summary += "0" + Convert::ToString(Duration_of_sunshine * 10.0);
-			else Summary +=Convert::ToString(Duration_of_sunshine * 10.0);
-			Summary += " ";
+			String^ Ok_Duration_of_sunshine = Sunshine_duration->Text;
+			Summary += Struct_55SSS(Ok_Duration_of_sunshine);
 
 			//6RRRtR
 									//аналогична группе 6RRRtR в разделе 1
 			if (Ok_6RRRtr == 0 || Ok_6RRRtr == 2)
 			{
-				double Number_of_precipitation = Convert::ToDouble(Rainfall->Text);
-				if (Number_of_precipitation < 1)Number_of_precipitation = Number_of_precipitation * 10 + 990;
-				else if (Number_of_precipitation <= 989)Number_of_precipitation = (int)Number_of_precipitation;
-				else if (Number_of_precipitation > 989)Number_of_precipitation = 989;
-
-				int Duration_of_precipitation = Precipitation_duration->SelectedIndex;
-				String^ Ok_Duration_of_precipitation;
-				if (Duration_of_precipitation <= 8)Ok_Duration_of_precipitation = Convert::ToString(Duration_of_precipitation + 1);
-				else Ok_Duration_of_precipitation = "/";
-
-				Summary += "6";
-				if (Number_of_precipitation < 10)Summary += "00" + Convert::ToString(Number_of_precipitation);
-				else if (Number_of_precipitation < 100)Summary += "0" + Convert::ToString(Number_of_precipitation);
-				else Summary += Convert::ToString(Number_of_precipitation);
-				Summary += Ok_Duration_of_precipitation;
-				Summary += " ";
+				String^ Ok_Number_of_precipitation = Rainfall->Text;
+				String^ Duration_of_precipitation = Precipitation_duration->Text;
+				Summary += Struct_6RRRtR(Ok_Number_of_precipitation, Duration_of_precipitation);
 			}
 
 			//8NsChshs
@@ -1832,66 +1733,117 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//характеристики облачности того слоя или той облачной массы, высота которых сообщена на месте hshs
 									//Ns – количество облачности
 									//C − форма облаков
-			if (Ok_Number_of_clouds != 0 && Ok_Number_of_clouds != 9 && Ok_Number_of_clouds != 10)
-			{
-				int Measurements_of_NGO = NGO_measurements->SelectedIndex;
-				if (Measurements_of_NGO == 0) 
-				{
-					int Number_of_NGO = NGO_number->SelectedIndex;
-					String^ Ok_Number_of_NGO;
-					if (Number_of_NGO <= 9)Ok_Number_of_NGO = Convert::ToString(Number_of_NGO);
-					else Ok_Number_of_NGO = "/";
+			String^ Measurements_of_NGO = NGO_measurements->Text;
+			String^ Number_of_NGO = NGO_number->Text;
+			String^ Type_of_NGO = NGO_type->Text;
+			Summary += Struct_8NsChshs(Measurements_of_NGO, Number_of_NGO, Type_of_NGO);
 
-					int Type_of_NGO = NGO_type->SelectedIndex;
-					String^ Ok_Type_of_NGO;
-					if (Type_of_NGO <= 9)Ok_Type_of_NGO = Convert::ToString(Type_of_NGO);
-					else Ok_Type_of_NGO = "/";
-					
-					int Height_of_NGO;
-					if (Height_of_cloud <= 1500)Height_of_NGO = Height_of_cloud / 30;
-					else if (Height_of_cloud <= 9000)Height_of_NGO = Height_of_cloud / 300 + 50;
-					else if (Height_of_cloud <= 21000)Height_of_NGO = Height_of_cloud / 1500 + 74;
-					else Height_of_NGO = 89;
-					if (Height_of_NGO >= 51 && Height_of_NGO <= 55)Height_of_NGO = 50;
-
-					Summary += "8";
-					Summary += Ok_Number_of_NGO;
-					Summary += Ok_Type_of_NGO;
-					Summary += Convert::ToString(Height_of_NGO);
-					Summary += " ";
-				}
-			}
 			//проверить сводку 9 на случай включения, тк я кажется налажал
 			//9SРSPspsp
 									//9 – отличительная цифра группы
 									//SPSPspsp – дополнительная информация о погоде в срок и между сроками наблюдения
-			int Additional_information_of_weather = Additional_weather_information->SelectedIndex;
+			String^ Str_Additional_information_of_weather = Additional_weather_information->Text;
+			int Additional_information_of_weather;
+			if (Str_Additional_information_of_weather == "Отсутствует")Additional_information_of_weather = 0;
+			else if (Str_Additional_information_of_weather == "Смерч разрушающей силы")Additional_information_of_weather = 1;
+			else if (Str_Additional_information_of_weather == "Смерч вихрь характеристика (Mw) и направление (Da)")Additional_information_of_weather = 2;
+			else if (Str_Additional_information_of_weather == "Шквал характеристика (sq) и направление (Dp)")Additional_information_of_weather = 3;
+			else if (Str_Additional_information_of_weather == "Общая метель её эволюция (S8) слабая или умеренная")Additional_information_of_weather = 4;
+			else if (Str_Additional_information_of_weather == "Общая метель её эволюция (S8) сильная")Additional_information_of_weather = 5;
+			else if (Str_Additional_information_of_weather == "Град, его максимальный диаметр (RR)")Additional_information_of_weather = 6;
+			else if (Str_Additional_information_of_weather == "Гололёдно-изморозевые отложения их диаметр (RR) Гололёд")Additional_information_of_weather = 7;
+			else if (Str_Additional_information_of_weather == "Гололёдно-изморозевые отложения их диаметр (RR) Изморозь")Additional_information_of_weather = 8;
+			else if (Str_Additional_information_of_weather == "Гололёдно-изморозевые отложения их диаметр (RR) Сложные отложения")Additional_information_of_weather = 9;
+			else if (Str_Additional_information_of_weather == "Гололёдно-изморозевые отложения их диаметр (RR) Отложения мокрого снега")Additional_information_of_weather = 10;
+			else if (Str_Additional_information_of_weather == "Температура воды (TwTw) на поверхности моря в купальный сезон")Additional_information_of_weather = 11;
+			else if (Str_Additional_information_of_weather == "Высота свежевыпавшего снега (ss) за истекшие сутки")Additional_information_of_weather = 12;
+			else if (Str_Additional_information_of_weather == "Снежная мгла в срок наблюдения")Additional_information_of_weather = 13;
+			else if (Str_Additional_information_of_weather == "Снежная мгла между сроками наблюдения")Additional_information_of_weather = 14;
+			else if (Str_Additional_information_of_weather == "Облачность над горами и перевалами состояние (Nm) эволюция (n3)")Additional_information_of_weather = 15;
+			else if (Str_Additional_information_of_weather == "Облачность, туман, дымка внизу состояние (Nv) и эволюция этих явлений (n4)")Additional_information_of_weather = 16;
+
 			if (Additional_information_of_weather != 0)
 			{
 				String^ Ok_Additional_information_of_weather;
 				double Hail_diameter, Fresh_snow_height;
 				int Sea_temperature;
+
+				int Ok_Str_Additional_characteristic_1, Ok_Str_Additional_characteristic_2;
+				String^ Str_Additional_characteristic_1 = Additional_characteristic_1->Text;
+				String^ Str_Additional_characteristic_2 = Additional_characteristic_2->Text;
+
 				switch (Additional_information_of_weather)
 				{
 				case 1:
 					Ok_Additional_information_of_weather = "6119";
 					break;
 				case 2:
+					if (Str_Additional_characteristic_1 == "Водяной(ые) смерч(и) в радиусе 3 км от станции")Ok_Str_Additional_characteristic_1 = 0;
+					else if (Str_Additional_characteristic_1 == "Водяной(ые) смерч(и) на расстоянии более 3 км от станции")Ok_Str_Additional_characteristic_1 = 1;
+					else if (Str_Additional_characteristic_1 == "Смерч (и) на суше в радиусе 3 км от станции")Ok_Str_Additional_characteristic_1 = 2;
+					else if (Str_Additional_characteristic_1 == "Смерч (и) на суше на расстоянии более 3 км от станции")Ok_Str_Additional_characteristic_1 = 3;
+					else if (Str_Additional_characteristic_1 == "Вихрь(и) слабой интенсивности")Ok_Str_Additional_characteristic_1 = 4;
+					else if (Str_Additional_characteristic_1 == "Вихрь(и) умеренной интенсивности")Ok_Str_Additional_characteristic_1 = 5;
+					else if (Str_Additional_characteristic_1 == "Вихрь(и) сильной интенсивности")Ok_Str_Additional_characteristic_1 = 6;
+					else if (Str_Additional_characteristic_1 == "Пыльный(е) вихрь(и) слабой интенсивности")Ok_Str_Additional_characteristic_1 = 7;
+					else if (Str_Additional_characteristic_1 == "Пыльный(е) вихрь(и) умеренной интенсивности")Ok_Str_Additional_characteristic_1 = 8;
+					else if (Str_Additional_characteristic_1 == "Пыльный(е) вихрь(и) сильной интенсивности")Ok_Str_Additional_characteristic_1 = 9;
+			
+					if (Str_Additional_characteristic_2 == "На станции")Ok_Str_Additional_characteristic_2 = 0;
+					else if (Str_Additional_characteristic_2 == "СВ")Ok_Str_Additional_characteristic_2 = 1;
+					else if (Str_Additional_characteristic_2 == "В")Ok_Str_Additional_characteristic_2 = 2;
+					else if (Str_Additional_characteristic_2 == "ЮВ")Ok_Str_Additional_characteristic_2 = 3;
+					else if (Str_Additional_characteristic_2 == "Ю")Ok_Str_Additional_characteristic_2 = 4;
+					else if (Str_Additional_characteristic_2 == "ЮЗ")Ok_Str_Additional_characteristic_2 = 5;
+					else if (Str_Additional_characteristic_2 == "З")Ok_Str_Additional_characteristic_2 = 6;
+					else if (Str_Additional_characteristic_2 == "СЗ")Ok_Str_Additional_characteristic_2 = 7;
+					else if (Str_Additional_characteristic_2 == "С")Ok_Str_Additional_characteristic_2 = 8;
+					else if (Str_Additional_characteristic_2 == "Все направления")Ok_Str_Additional_characteristic_2 = 9;
+
 					Ok_Additional_information_of_weather = "19" + 
-						Convert::ToString(Additional_characteristic_1->SelectedIndex)+
-						Convert::ToString(Additional_characteristic_2->SelectedIndex);
+						Convert::ToString(Ok_Str_Additional_characteristic_1)+
+						Convert::ToString(Ok_Str_Additional_characteristic_2);
 					break;
 				case 3:
+					if (Str_Additional_characteristic_1 == "Штиль или слабый ветер, за которыми последовал шквал")Ok_Str_Additional_characteristic_1 = 0;
+					else if (Str_Additional_characteristic_1 == "Штиль или слабый ветер, за которыми последовала серия шквалов")Ok_Str_Additional_characteristic_1 = 1;
+					else if (Str_Additional_characteristic_1 == "Порывистый ветер, за которым последовал шквал")Ok_Str_Additional_characteristic_1 = 2;
+					else if (Str_Additional_characteristic_1 == "Порывистый ветер, за которым последовала серия шквалов")Ok_Str_Additional_characteristic_1 = 3;
+					else if (Str_Additional_characteristic_1 == "Шквал, за которым последовал порывистый ветер")Ok_Str_Additional_characteristic_1 = 4;
+					else if (Str_Additional_characteristic_1 == "Порывистый ветер, временами шквалы")Ok_Str_Additional_characteristic_1 = 5;
+					else if (Str_Additional_characteristic_1 == "Шквал в поле зрения, приближающийся к станции")Ok_Str_Additional_characteristic_1 = 6;
+					else if (Str_Additional_characteristic_1 == "Линия шквалов")Ok_Str_Additional_characteristic_1 = 7;
+					else if (Str_Additional_characteristic_1 == "Шквал с песчаным позёмком или с пыльной/песчаной бурей ")Ok_Str_Additional_characteristic_1 = 8;
+					else if (Str_Additional_characteristic_1 == "Линия шквалов с песчаным позёмком или с пыльной/песчаной бурей ")Ok_Str_Additional_characteristic_1 = 9;
+					
+					if (Str_Additional_characteristic_2 == "На станции")Ok_Str_Additional_characteristic_2 = 0;
+					else if (Str_Additional_characteristic_2 == "СВ")Ok_Str_Additional_characteristic_2 = 1;
+					else if (Str_Additional_characteristic_2 == "В")Ok_Str_Additional_characteristic_2 = 2;
+					else if (Str_Additional_characteristic_2 == "ЮВ")Ok_Str_Additional_characteristic_2 = 3;
+					else if (Str_Additional_characteristic_2 == "Ю")Ok_Str_Additional_characteristic_2 = 4;
+					else if (Str_Additional_characteristic_2 == "ЮЗ")Ok_Str_Additional_characteristic_2 = 5;
+					else if (Str_Additional_characteristic_2 == "З")Ok_Str_Additional_characteristic_2 = 6;
+					else if (Str_Additional_characteristic_2 == "СЗ")Ok_Str_Additional_characteristic_2 = 7;
+					else if (Str_Additional_characteristic_2 == "С")Ok_Str_Additional_characteristic_2 = 8;
+					else if (Str_Additional_characteristic_2 == "Все направления")Ok_Str_Additional_characteristic_2 = 9;
+
 					Ok_Additional_information_of_weather = "18" +
-						Convert::ToString(Additional_characteristic_1->SelectedIndex) +
-						Convert::ToString(Additional_characteristic_2->SelectedIndex);
+						Convert::ToString(Ok_Str_Additional_characteristic_1) +
+						Convert::ToString(Ok_Str_Additional_characteristic_2);
 					break;
 				case 4:
-					Ok_Additional_information_of_weather = "298" +
-						Convert::ToString(Additional_characteristic_1->SelectedIndex);
-					break;
 				case 5:
-					Ok_Additional_information_of_weather = "299" +
+					/*
+		Additional_characteristic_1->Items->Add("Окончилась до срока наблюдения");
+		Additional_characteristic_1->Items->Add("Ослабевала");
+		Additional_characteristic_1->Items->Add("Без изменений");
+		Additional_characteristic_1->Items->Add("Усиливалась");
+		Additional_characteristic_1->Items->Add("Возобновилась после перерыва продолжительностью <=30 мин");
+		Additional_characteristic_1->Items->Add("Высота распространения метели уменьшалась");
+		Additional_characteristic_1->Items->Add("Высота распространения метели увеличивалась");
+		Additional_characteristic_1->Items->Add("Возобновилась после перерыва продолжительностью >30 мин");
+					*/
+					Ok_Additional_information_of_weather = Convert::ToString(Additional_information_of_weather + 294) +
 						Convert::ToString(Additional_characteristic_1->SelectedIndex);
 					break;
 				case 6:
@@ -2062,7 +2014,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 									//sn – знак температуры
 									//T'gT'g – значение в градусах Цельсия с точностью до одного градуса
 			int Temperature_of_soil = Convert::ToInt32(Soil_temperature->Text);
-			Sign = "0";
+			String^ Sign = "0";
 			if (Temperature_of_soil < 0) {
 				Sign = "1";
 				Temperature_of_soil = -Temperature_of_soil;

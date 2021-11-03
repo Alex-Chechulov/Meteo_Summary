@@ -60,7 +60,6 @@ int Speed_of_wind = 0;
 String^ Nddff(String^ Number_of_clouds, String^ Ok_Direction_of_wind, String^ Ok_Speed_of_wind)
 {
 	String^ Summary;
-	//String^ Ok_Number_of_clouds;
 	if (Number_of_clouds == "0 (облаков нет)")Ok_Number_of_clouds =0;
 	else if (Number_of_clouds == "1 или менее(но не 0)")Ok_Number_of_clouds = 1;
 	else if (Number_of_clouds == "2–3")Ok_Number_of_clouds = 2;
@@ -222,6 +221,94 @@ String ^ Struct_6RRRtR(String ^ Ok_Number_of_precipitation, String ^ Duration_of
 	else if (Number_of_precipitation < 100)Summary += "0" + Convert::ToString(Number_of_precipitation);
 	else Summary += Convert::ToString(Number_of_precipitation);
 	Summary += Ok_Duration_of_precipitation;
+	Summary += " ";
+
+	return Summary;
+}
+int Current_of_weather = 0;
+int Past_of_weather = 0;
+String^ Struct_7wwW1W2(String^ Ok_Current_of_weather, String^ Ok_Past_of_weather)
+{
+	String^ Summary;
+	Current_of_weather = Convert::ToInt32(Ok_Current_of_weather);
+	Past_of_weather = Convert::ToInt32(Ok_Past_of_weather);
+	if (Ok_7wwW1W2 == 1)
+	{
+		Summary += "7";
+		if (Current_of_weather < 10)Summary += "0" + Convert::ToString(Current_of_weather);
+		else Summary += Convert::ToString(Current_of_weather);
+		if (Past_of_weather < 10)Summary += "0" + Convert::ToString(Past_of_weather);
+		else Summary += Convert::ToString(Past_of_weather);
+
+		Summary += " ";
+	}
+	return Summary;
+}
+String^ Struct_8NhCLCMCH(String^ Exact_amount_of_clouds, String^ Basement_of_clouds, String^ Middle_layer_of_clouds, String^ Top_of_cloud)
+{
+	String^ Summary;
+	
+	int Ok_Exact_amount_of_clouds;
+	if (Exact_amount_of_clouds == "0 (облаков нет)")Ok_Exact_amount_of_clouds = 0;
+	else if (Exact_amount_of_clouds == "1 или менее(но не 0)")Ok_Exact_amount_of_clouds = 1;
+	else if (Exact_amount_of_clouds == "2–3")Ok_Exact_amount_of_clouds = 2;
+	else if (Exact_amount_of_clouds == "4")Ok_Exact_amount_of_clouds = 3;
+	else if (Exact_amount_of_clouds == "5")Ok_Exact_amount_of_clouds = 4;
+	else if (Exact_amount_of_clouds == "6")Ok_Exact_amount_of_clouds = 5;
+	else if (Exact_amount_of_clouds == "7–8")Ok_Exact_amount_of_clouds = 6;
+	else if (Exact_amount_of_clouds == "9 или более(но не 10 есть просветы)")Ok_Exact_amount_of_clouds = 7;
+	else if (Exact_amount_of_clouds == "10 (без просветов)")Ok_Exact_amount_of_clouds = 8;
+	else if (Exact_amount_of_clouds == "Определить невозможно из - за тумана метели или других метеорологических явлений затрудняющих видимость")Ok_Exact_amount_of_clouds = 9;
+	else if (Exact_amount_of_clouds == "Определить невозможно по другим причинам кроме указанных(кроме указаных ранее) или наблюдения не производились")Ok_Exact_amount_of_clouds = 10;
+
+	int Ok_Basement_of_clouds;
+	if (Basement_of_clouds == "Облаков нет")Ok_Basement_of_clouds = 0;
+	else if (Basement_of_clouds == "Кучевые плоские")Ok_Basement_of_clouds = 1;
+	else if (Basement_of_clouds == "Кучевые средние или кучевые мощные")Ok_Basement_of_clouds = 2;
+	else if (Basement_of_clouds == "Кучево-дождевые лысые")Ok_Basement_of_clouds = 3;
+	else if (Basement_of_clouds == "Слоисто-кучевые кучевообразные")Ok_Basement_of_clouds = 4;
+	else if (Basement_of_clouds == "Слоисто-кучевые волнистообразные")Ok_Basement_of_clouds = 5;
+	else if (Basement_of_clouds == "Слоистые туманообразные или волнистообразные или разорванно-слоистые")Ok_Basement_of_clouds = 6;
+	else if (Basement_of_clouds == "Слоистые разорванно-дождевые")Ok_Basement_of_clouds = 7;
+	else if (Basement_of_clouds == "Кучевые и слоисто-кучевые")Ok_Basement_of_clouds = 8;
+	else if (Basement_of_clouds == "Кучево-дождевые волосатые")Ok_Basement_of_clouds = 9;
+	else if (Basement_of_clouds == "Невозможно определить")Ok_Basement_of_clouds = 10;
+
+	int Ok_Middle_layer_of_clouds;
+	if (Middle_layer_of_clouds == "Облаков нет")Ok_Middle_layer_of_clouds = 0;
+	else if (Middle_layer_of_clouds == "Высокослоистые туманообразные")Ok_Middle_layer_of_clouds = 1;
+	else if (Middle_layer_of_clouds == "Высокослоистые волнистообразные или слоисто-дождевые")Ok_Middle_layer_of_clouds = 2;
+	else if (Middle_layer_of_clouds == "Высококучевые волнистообразные просвечивающие  один слой")Ok_Middle_layer_of_clouds = 3;
+	else if (Middle_layer_of_clouds == "Высококучевые волнистообразные чечевицеобразные или неоднородные")Ok_Middle_layer_of_clouds = 4;
+	else if (Middle_layer_of_clouds == "Высококучевые волнистообразные просвечивающие в виде гряд (валов) полос (или нескольких слоёв) или высококучевые волнистообразные непросвечивающие несколько слоёв")Ok_Middle_layer_of_clouds = 5;
+	else if (Middle_layer_of_clouds == "Высококучевые кучевообразные образовавшиеся из кучевых или с полосами падения")Ok_Middle_layer_of_clouds = 6;
+	else if (Middle_layer_of_clouds == "Высококучевые волнистообразные непросвечивающие один слой или высококучевые волнистообразные просвечивающие несколько слоёв или высококучевые вместе с высокослоистыми или слоисто-дождевыми")Ok_Middle_layer_of_clouds = 7;
+	else if (Middle_layer_of_clouds == "Высококучевые кучевообразные хлопьевидные или башенковидные")Ok_Middle_layer_of_clouds = 8;
+	else if (Middle_layer_of_clouds == "Высококучевые при хаотическом виде неба")Ok_Middle_layer_of_clouds = 9;
+	else if (Middle_layer_of_clouds == "Невозможно определить")Ok_Middle_layer_of_clouds = 10;
+
+	int Ok_Top_of_cloud;
+	if (Top_of_cloud == "Облаков нет")Ok_Top_of_cloud = 0;
+	else if (Top_of_cloud == "Перистые волокнистые количество облаков не увеличивается")Ok_Top_of_cloud = 1;
+	else if (Top_of_cloud == "Перистые плотные хлопьевидные")Ok_Top_of_cloud = 2;
+	else if (Top_of_cloud == "Перистые плотные образовавшиеся из наковален кучеводождевых облаков")Ok_Top_of_cloud = 3;
+	else if (Top_of_cloud == "Перистые волокнистые облака в целом уплотняются и распространяются по всему небу")Ok_Top_of_cloud = 4;
+	else if (Top_of_cloud == "Перисто-слоистые волокнистые")Ok_Top_of_cloud = 5;
+	else if (Top_of_cloud == "Перисто-слоистые  туманообразные распространяются по небу и уплотняются < 10 баллов высота сплошной пелены облаков над горизонтом > 45 град")Ok_Top_of_cloud = 6;
+	else if (Top_of_cloud == "Перисто-слоистые  туманообразные 10 баллов")Ok_Top_of_cloud = 7;
+	else if (Top_of_cloud == "Перисто-слоистые  туманообразные не распространяются по небу < 10 баллов")Ok_Top_of_cloud = 8;
+	else if (Top_of_cloud == "Перисто-кучевые")Ok_Top_of_cloud = 9;
+	else if (Top_of_cloud == "Невозможно определить")Ok_Top_of_cloud = 10;
+
+	Summary += "8";
+	if (Ok_Exact_amount_of_clouds <10)Summary += Convert::ToString(Ok_Exact_amount_of_clouds);
+	else Summary += "/";
+	if (Ok_Basement_of_clouds <10)Summary += Convert::ToString(Ok_Basement_of_clouds);
+	else Summary += "/";
+	if (Ok_Middle_layer_of_clouds <10)Summary += Convert::ToString(Ok_Middle_layer_of_clouds);
+	else Summary += "/";;
+	if (Ok_Top_of_cloud < 10)Summary += Convert::ToString(Ok_Top_of_cloud);
+	else Summary += "/";
 	Summary += " ";
 
 	return Summary;
