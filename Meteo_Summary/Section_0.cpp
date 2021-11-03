@@ -1,9 +1,14 @@
 #include "Section_0.h"
 
+//–аздел 0
+//MiMiMjMj Ѕуквенный указатель кода. ƒл€ информации, передаваемой в коде  Ќ-01 SYNOP
 String^ MiMiMjMj(String^ Code_letter_pointer)
 {
 	return Code_letter_pointer + " ";
 }
+//YYGGiw ƒата и срок наблюдени€ по ¬—¬:
+						//YY Ц число мес€ца, GG Ц срок наблюдени€ в часах,
+						//iw Ц указатель единиц сообщаемой в сводке скорости ветра
 String^ YYGGiw(String^ Data, String^ Time, String^ Type_speed_wind, String^ Type_speed_wind_dimension)
 {
 	String^ Summary;
@@ -20,6 +25,9 @@ String^ YYGGiw(String^ Data, String^ Time, String^ Type_speed_wind, String^ Type
 	Summary += " ";
 	return Summary;
 }
+//IIiii »ндексный номер станции:
+									//II Ц номер района,
+									//iii Ц номер станции в пределах района II
 String^ IIiii(int Number_of_district, int Number_of_station)
 {
 	String^ Summary;

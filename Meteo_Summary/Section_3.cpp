@@ -1,10 +1,17 @@
 ﻿#include "Section_3.h"
 #include "Section_1.h"
-
+//Раздел 3
+									//Отличительная группа раздела 3
 String^ Struct_333()
 {
 	return "333 ";
 }
+
+//1snTxTxTx
+						//1 – отличительная цифра группы
+						//snTxTxTx – максимальная температура воздуха за день
+						//sn – знак температуры
+						//TxTxTx – значение в градусах Цельсия с точностью до десятых долей градуса
 String^ Struct_1snTxTxTx(String^ Ok_Max_temperature_of_day)
 {
 	String^ Summary;
@@ -22,6 +29,12 @@ String^ Struct_1snTxTxTx(String^ Ok_Max_temperature_of_day)
 	Summary += " ";
 	return Summary;
 }
+
+//2snTnTnTn
+						//2 – отличительная цифра группы
+						//snTnTnTn – минимальная температура воздуха за ночь
+						//sn – знак температуры
+						//TnTnTn – значение в градусах Цельсия с точностью до десятых долей градуса
 String^ Struct_2snTnTnTn(String^ Ok_Min_temperature_of_day)
 {
 	String^ Summary;
@@ -39,6 +52,13 @@ String^ Struct_2snTnTnTn(String^ Ok_Min_temperature_of_day)
 	Summary += " ";
 	return Summary;
 }
+
+//3EsnTgTg
+						//3 – отличительная цифра группы
+						//Е – состояние поверхности почвы при отсутствии снежного покрова
+						//snTgTg – минимальная температура поверхности почвы за ночь 
+						//sn – знак температуры
+						//TgTg – значение в градусах Цельсия с точностью до одного градуса
 int Ok_Condition_of_soil_surfase = 0;
 String^ Struct_3EsnTgTg(String^ Condition_of_soil_surfase, String^ Ok_Temperature_of_night_soil)
 {
@@ -71,6 +91,11 @@ String^ Struct_3EsnTgTg(String^ Condition_of_soil_surfase, String^ Ok_Temperatur
 
 	return Summary;
 }
+
+//4E'sss
+						//4 – отличительная цифра группы
+						//E' – состояние подстилающей поверхности при наличии снежного покрова
+						//sss – высота снежного покрова
 String^ Struct_4Esss(String^ Condition_of_snow, String^ Ok_Height_of_snow)
 {
 	String^ Summary;
@@ -103,6 +128,10 @@ String^ Struct_4Esss(String^ Condition_of_snow, String^ Ok_Height_of_snow)
 	Summary += " ";
 	return Summary;
 }
+
+//55SSS
+						//55 – отличительные цифры группы
+						//SSS – продолжительность солнечного сияния за сутки в часах с точностью до десятых долей часа.
 String^ Struct_55SSS(String^ Ok_Duration_of_sunshine)
 {
 	String^ Summary;
@@ -116,6 +145,13 @@ String^ Struct_55SSS(String^ Ok_Duration_of_sunshine)
 
 	return Summary;
 }
+
+//8NsChshs
+									//8 – отличительная цифра группы
+									//hshs – инструментально измеренная высота НГО;
+									//характеристики облачности того слоя или той облачной массы, высота которых сообщена на месте hshs
+									//Ns – количество облачности
+									//C − форма облаков
 String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, String^ Type_of_NGO)
 {
 	String^ Summary;
@@ -168,6 +204,10 @@ String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, Stri
 	}
 	return Summary;
 }
+
+//9SРSPspsp
+									//9 – отличительная цифра группы
+									//SPSPspsp – дополнительная информация о погоде в срок и между сроками наблюдения
 String^ Struct_9SРSPspsp(String^ Str_Additional_information_of_weather, String^ Str_Additional_characteristic_1, String^ Str_Additional_characteristic_2, String^ Str_Additional_characteristic_3)
 {
 	String^ Summary;

@@ -1,5 +1,11 @@
 #include "Section_1.h"
 
+//Раздел 1
+			//iRixhVV 
+									//iR – указатель наличия в сводке группы 6RRRtR, указатель типа станции (обслуживаемая 
+											//персоналом или автоматическая) и наличия в сводке группы 7wwW1W2
+									//h – высота нижней границы самых низких облаков(CL или CM);
+									//VV – метеорологическая дальность видимости
 int Ok_6RRRtr = 0;
 int Ok_7wwW1W2 = 0;
 int Height_of_cloud = 0;
@@ -55,6 +61,10 @@ String^ iRixhVV(String^ Availability_6RRRtr, String^ Availability_7wwW1W2, Strin
 	return Summary;
 }
 
+//Nddff
+									//N – общее количество облаков всех ярусов
+									//среднее направление ветра в срок наблюдения
+									//средняя скорость ветра в срок наблюдения в м/с 
 int Ok_Number_of_clouds = 0;
 int Speed_of_wind = 0;
 String^ Nddff(String^ Number_of_clouds, String^ Ok_Direction_of_wind, String^ Ok_Speed_of_wind)
@@ -92,6 +102,9 @@ String^ Nddff(String^ Number_of_clouds, String^ Ok_Direction_of_wind, String^ Ok
 	return Summary;
 }
 
+//1snTTT
+									//1 - отличительная цифра группы
+									//температура воздуха (sn – знак, TTT – значение в градусах Цельсия с точностью до десятых долей градуса)
 String^ Struct_1snTTT(String ^ Ok_Temperature_of_air)
 {
 	String^ Summary;
@@ -109,6 +122,10 @@ String^ Struct_1snTTT(String ^ Ok_Temperature_of_air)
 	Summary += " ";
 	return Summary;
 }
+
+//2snTdTdTd
+									//2 – отличительная цифра группы
+									//snTdTdTd – точка росы (sn – знак, TdTdTd – значение в градусах Цельсия с точностью до десятых долей).
 String^ Struct_2snTdTdTd(String^ Ok_Point_of_dew)
 {
 	String^ Summary;
@@ -126,6 +143,10 @@ String^ Struct_2snTdTdTd(String^ Ok_Point_of_dew)
 	Summary += " ";
 	return Summary;
 }
+
+// 3PoPoPoPo
+									//3 – отличительная цифра группы
+									//PoPoPoPo – давление воздуха на уровне станции в гПа с точностью до десятых долей
 String^ Struct_3PoPoPoPo(String^ Ok_Air_pressure_on_station)
 {
 	String^ Summary;
@@ -140,6 +161,10 @@ String^ Struct_3PoPoPoPo(String^ Ok_Air_pressure_on_station)
 	Summary += " ";
 	return Summary;
 }
+
+//4PPPP
+						//4 – отличительная цифра группы
+						//PPPP – давление воздуха, приведенное к среднему уровню моря, в гПа с точностью до десятых долей
 String ^ Struct_4PPPP(String^ Ok_Air_pressure_on_sea_level)
 {
 	String^ Summary;
@@ -154,6 +179,11 @@ String ^ Struct_4PPPP(String^ Ok_Air_pressure_on_sea_level)
 	Summary += " ";
 	return Summary;
 }
+
+//5appp 
+						//5 – отличительная цифра группы
+						//a – характеристика барической тенденции за последние 3 часа;
+						//ppp – значение барической тенденции за последние 3 часа в гПа с точностью до десятых долей. 
 String^ Struct_5appp(String^ Ok_Characteristic_of_baric_tendency,String^ Ok_Value_of_pressere_trend)
 {
 	String^ Summary;
@@ -196,6 +226,11 @@ String^ Struct_5appp(String^ Ok_Characteristic_of_baric_tendency,String^ Ok_Valu
 
 	return Summary;
 }
+
+//6RRRtR
+									//6 – отличительная цифра группы
+									//RRR – количество осадков, выпавших за период tR
+									//tR – продолжительность периода, за который измерено количество осадков, указанное на месте RRR
 String ^ Struct_6RRRtR(String ^ Ok_Number_of_precipitation, String ^ Duration_of_precipitation)
 {
 	String^ Summary;
@@ -225,6 +260,11 @@ String ^ Struct_6RRRtR(String ^ Ok_Number_of_precipitation, String ^ Duration_of
 
 	return Summary;
 }
+
+//7wwW1W2
+						//7 – отличительная цифра группы
+						//ww – текущая погода (погода в срок наблюдения или в течение последнего часа перед сроком наблюдения)
+						//W1W2 - прошедшая погода (погода в период между сроками наблюдений)
 int Current_of_weather = 0;
 int Past_of_weather = 0;
 String^ Struct_7wwW1W2(String^ Ok_Current_of_weather, String^ Ok_Past_of_weather)
@@ -244,6 +284,13 @@ String^ Struct_7wwW1W2(String^ Ok_Current_of_weather, String^ Ok_Past_of_weather
 	}
 	return Summary;
 }
+
+//8NhCLCMCH
+						//8 – отличительная цифра группы
+						//Nh – количество облаков CL или CM, если облаков CL нет
+						//CL – облака вертикального развития и облака нижнего яруса(кроме слоистодождевых)
+						//CM – облака среднего яруса и слоисто-дождевые облака
+						//CH – облака верхнего яруса
 String^ Struct_8NhCLCMCH(String^ Exact_amount_of_clouds, String^ Basement_of_clouds, String^ Middle_layer_of_clouds, String^ Top_of_cloud)
 {
 	String^ Summary;

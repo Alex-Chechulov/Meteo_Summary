@@ -1558,41 +1558,26 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 		void calculation()
 		{
 			//Раздел 0
-			//MiMiMjMj Буквенный указатель кода. Для информации, передаваемой в коде КН-01 SYNOP
+			//MiMiMjMj
 			String^ Summary;
 			String^ Code_letter_pointer = "AAXX";
 			Summary += MiMiMjMj(Code_letter_pointer);
 
-			//YYGGiw Дата и срок наблюдения по ВСВ:
-									//YY – число месяца, GG – срок наблюдения в часах,
-									//iw – указатель единиц сообщаемой в сводке скорости ветра
+			//YYGGiw
 			String^ Data = Data_calculation->Text;
 			String^ Time = Time_calculation->Text;
 			String^ Type_speed_wind = Type_speed->Text;
 			String^ Type_speed_wind_dimension = Type_speed_dimension->Text;
 			Summary += YYGGiw(Data, Time, Type_speed_wind, Type_speed_wind_dimension);
 
-			//IIiii Индексный номер станции:
-									//II – номер района,
-									//iii – номер станции в пределах района II
+			//IIiii
 			int Number_of_district = Convert::ToInt32(Number_district->Text);
 			int Number_of_station = Convert::ToInt32(Number_station->Text);
 			Summary += IIiii(Number_of_district, Number_of_station);
 
+
 			//Раздел 1
-			//iRixhVV 
-									//iR – указатель наличия в сводке группы 6RRRtR, указатель типа станции (обслуживаемая 
-											//персоналом или автоматическая) и наличия в сводке группы 7wwW1W2
-									//h – высота нижней границы самых низких облаков(CL или CM);
-									//VV – метеорологическая дальность видимости
-			
-			
-			//int Ok_6RRRtr = Group_6RRRtr->SelectedIndex;
-			//String^ Ok_6RRRtr;
-			//Ok_6RRRtr = Convert::ToString(Availability_6RRRtr);
-
-			
-
+			//iRixhVV
 			String^ Availability_6RRRtr = Group_6RRRtr->Text;
 			String^ Availability_7wwW1W2 = Group_7wwW1W2->Text;
 			String^ Type_of_station = Type_station->Text;
@@ -1601,53 +1586,35 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			Summary += iRixhVV(Availability_6RRRtr, Availability_7wwW1W2, Type_of_station, Ok_Cloud_height, OkS_Visibility_range_cloud);
 
 			//Nddff
-									//N – общее количество облаков всех ярусов
-									//среднее направление ветра в срок наблюдения
-									//средняя скорость ветра в срок наблюдения в м/с 
 			String^ Number_of_clouds = Number_clouds->Text;
 			String^ Ok_Direction_of_wind = Direction_wind->Text;
 			String^ Ok_Speed_of_wind = Speed_wind->Text;
 			Summary+= Nddff(Number_of_clouds, Ok_Direction_of_wind, Ok_Speed_of_wind);
 
 			//1snTTT
-									//1 - отличительная цифра группы
-									//температура воздуха (sn – знак, TTT – значение в градусах Цельсия с точностью до десятых долей градуса)
 			String^ Ok_Temperature_of_air = Air_temperature->Text;
 			Summary += Struct_1snTTT(Ok_Temperature_of_air);
 
 			//2snTdTdTd
-									//2 – отличительная цифра группы
-									//snTdTdTd – точка росы (sn – знак, TdTdTd – значение в градусах Цельсия с точностью до десятых долей).
 			String^ Ok_Point_of_dew = Dew_point->Text;
 			Summary += Struct_2snTdTdTd(Ok_Point_of_dew);
 			
 			// 3PoPoPoPo
-									//3 – отличительная цифра группы
-									//PoPoPoPo – давление воздуха на уровне станции в гПа с точностью до десятых долей
 			String^ Ok_Air_pressure_on_station = Air_pressure_station->Text;
 			Summary += Struct_3PoPoPoPo(Ok_Air_pressure_on_station);
 
 			//4PPPP
-									//4 – отличительная цифра группы
-									//PPPP – давление воздуха, приведенное к среднему уровню моря, в гПа с точностью до десятых долей
 			String^ Ok_Air_pressure_on_sea_level = Air_pressure_sea_level->Text;
 			Summary += Struct_4PPPP(Ok_Air_pressure_on_sea_level);
 
 			//4a3hhh пока нет, тк я не понял, что имеется ввиду или, или
 			
 			//5appp 
-									//5 – отличительная цифра группы
-									//a – характеристика барической тенденции за последние 3 часа;
-									//ppp – значение барической тенденции за последние 3 часа в гПа с точностью до десятых долей. 
-
 			String^ Ok_Characteristic_of_baric_tendency = Baric_tendency_characteristic->Text;
 			String^ Ok_Value_of_pressere_trend = Pressure_trend_value->Text;
 			Summary += Struct_5appp(Ok_Characteristic_of_baric_tendency, Ok_Value_of_pressere_trend);
 
 			//6RRRtR
-									//6 – отличительная цифра группы
-									//RRR – количество осадков, выпавших за период tR
-									//tR – продолжительность периода, за который измерено количество осадков, указанное на месте RRR
 			if (Ok_6RRRtr == 0 || Ok_6RRRtr == 1)
 			{
 				String^ Ok_Number_of_precipitation = Rainfall->Text;
@@ -1656,65 +1623,41 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			}
 
 			//7wwW1W2
-									//7 – отличительная цифра группы
-									//ww – текущая погода (погода в срок наблюдения или в течение последнего часа перед сроком наблюдения)
-									//W1W2 - прошедшая погода (погода в период между сроками наблюдений)
 			String^ Ok_Current_of_weather = Current_weather->Text;
 			String^ Ok_Past_of_weather = Past_weather->Text;
 			Summary += Struct_7wwW1W2(Ok_Current_of_weather, Ok_Past_of_weather);
 
 			//8NhCLCMCH
-									//8 – отличительная цифра группы
-									//Nh – количество облаков CL или CM, если облаков CL нет
-									//CL – облака вертикального развития и облака нижнего яруса(кроме слоистодождевых)
-									//CM – облака среднего яруса и слоисто-дождевые облака
-									//CH – облака верхнего яруса
 			String^ Exact_amount_of_clouds = Clouds_exact_amount->Text;
 			String^ Basement_of_clouds = Clouds_basement->Text;
 			String^ Middle_layer_of_clouds = Clouds_middle_layer->Text;
 			String^ Top_of_cloud = Cloud_top->Text;
 			Summary += Struct_8NhCLCMCH(Exact_amount_of_clouds, Basement_of_clouds, Middle_layer_of_clouds, Top_of_cloud);
 
+
 			//Раздел 3
 									//Отличительная группа раздела 3
 			Summary += Struct_333();
+
 			//1snTxTxTx
-									//1 – отличительная цифра группы
-									//snTxTxTx – максимальная температура воздуха за день
-									//sn – знак температуры
-									//TxTxTx – значение в градусах Цельсия с точностью до десятых долей градуса
 			String^ Ok_Max_temperature_of_day = Max_day_temperature->Text;
 			Summary += Struct_1snTxTxTx(Ok_Max_temperature_of_day);
 
 			//2snTnTnTn
-									//2 – отличительная цифра группы
-									//snTnTnTn – минимальная температура воздуха за ночь
-									//sn – знак температуры
-									//TnTnTn – значение в градусах Цельсия с точностью до десятых долей градуса
 			String^ Ok_Min_temperature_of_day = Min_day_temperature->Text;
 			Summary += Struct_2snTnTnTn(Ok_Min_temperature_of_day);
 
 			//3EsnTgTg
-									//3 – отличительная цифра группы
-									//Е – состояние поверхности почвы при отсутствии снежного покрова
-									//snTgTg – минимальная температура поверхности почвы за ночь 
-									//sn – знак температуры
-									//TgTg – значение в градусах Цельсия с точностью до одного градуса
 			String^ Condition_of_soil_surfase = Soil_surface_condition->Text;
 			String^ Ok_Temperature_of_night_soil = Night_soil_temperature->Text;
 			Summary += Struct_3EsnTgTg(Condition_of_soil_surfase, Ok_Temperature_of_night_soil);
 
 			//4E'sss
-									//4 – отличительная цифра группы
-									//E' – состояние подстилающей поверхности при наличии снежного покрова
-									//sss – высота снежного покрова
 			String^ Condition_of_snow = Snow_condition->Text;
 			String^ Ok_Height_of_snow = Snow_height->Text;
 			Summary += Struct_4Esss(Condition_of_snow, Ok_Height_of_snow);
 
 			//55SSS
-									//55 – отличительные цифры группы
-									//SSS – продолжительность солнечного сияния за сутки в часах с точностью до десятых долей часа.
 			String^ Ok_Duration_of_sunshine = Sunshine_duration->Text;
 			Summary += Struct_55SSS(Ok_Duration_of_sunshine);
 
@@ -1728,20 +1671,14 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			}
 
 			//8NsChshs
-									//8 – отличительная цифра группы
-									//hshs – инструментально измеренная высота НГО;
-									//характеристики облачности того слоя или той облачной массы, высота которых сообщена на месте hshs
-									//Ns – количество облачности
-									//C − форма облаков
 			String^ Measurements_of_NGO = NGO_measurements->Text;
 			String^ Number_of_NGO = NGO_number->Text;
 			String^ Type_of_NGO = NGO_type->Text;
 			Summary += Struct_8NsChshs(Measurements_of_NGO, Number_of_NGO, Type_of_NGO);
 
 			//проверить всякий случай сводку 9 на случай включения(точно ли всегда когда нужна - включается?)
+			
 			//9SРSPspsp
-									//9 – отличительная цифра группы
-									//SPSPspsp – дополнительная информация о погоде в срок и между сроками наблюдения
 			String^ Str_Additional_information_of_weather = Additional_weather_information->Text;
 			String^ Str_Additional_characteristic_1 = Additional_characteristic_1->Text;
 			String^ Str_Additional_characteristic_2 = Additional_characteristic_2->Text;
