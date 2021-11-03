@@ -428,7 +428,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabControl1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1070, 655);
+			this->tabControl1->Size = System::Drawing::Size(1068, 655);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPage1
@@ -446,7 +446,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->tabPage1->Size = System::Drawing::Size(1062, 622);
+			this->tabPage1->Size = System::Drawing::Size(1060, 622);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Раздел 0";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -593,7 +593,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->tabPage2->Size = System::Drawing::Size(1062, 622);
+			this->tabPage2->Size = System::Drawing::Size(1060, 622);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Раздел 1";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -1069,7 +1069,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage3->Location = System::Drawing::Point(4, 29);
 			this->tabPage3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(1062, 622);
+			this->tabPage3->Size = System::Drawing::Size(1060, 622);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Раздел 3";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -1078,8 +1078,8 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			// 
 			this->Additional2_characteristic_1->FormattingEnabled = true;
 			this->Additional2_characteristic_1->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L"Отсутствует", L"Местоположение максимальной концентрации облаков − угловая высота над линией гори"
-					L"зонта (Eh) и направление, в котором наблюдается (Da)",
+				L"Отсутствует", L"Местоположение максимальной концентрации облаков. угловая высота над линией гориз"
+					L"онта (Eh) и направление, в котором наблюдается (Da)",
 					L"Скорость перемещения облаков (vp) и направление (Dp), откуда перемещаются облака"
 			});
 			this->Additional2_characteristic_1->Location = System::Drawing::Point(564, 354);
@@ -1424,7 +1424,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			this->tabPage4->Location = System::Drawing::Point(4, 29);
 			this->tabPage4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Size = System::Drawing::Size(1062, 622);
+			this->tabPage4->Size = System::Drawing::Size(1060, 622);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Раздел 5";
 			this->tabPage4->UseVisualStyleBackColor = true;
@@ -1738,7 +1738,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			String^ Type_of_NGO = NGO_type->Text;
 			Summary += Struct_8NsChshs(Measurements_of_NGO, Number_of_NGO, Type_of_NGO);
 
-			//проверить сводку 9 на случай включения, тк я кажется налажал
+			//проверить всякий случай сводку 9 на случай включения(точно ли всегда когда нужна - включается?)
 			//9SРSPspsp
 									//9 – отличительная цифра группы
 									//SPSPspsp – дополнительная информация о погоде в срок и между сроками наблюдения
@@ -1748,71 +1748,11 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			String^ Str_Additional_characteristic_3 = Additional_characteristic_3->Text;
 			Summary += Struct_9SРSPspsp( Str_Additional_information_of_weather, Str_Additional_characteristic_1, Str_Additional_characteristic_2, Str_Additional_characteristic_3);
 			
-			//то, что дальше тоже нужно впихнуть в глобальное условие 9 сводки
-				int Additional_information_of_weather_2 = Additional2_characteristic_1->SelectedIndex;
-				double Cloud_travel_speed;
-				String^ Ok_Additional_information_of_weather_2;
-				if (Additional_information_of_weather_2 != 0)
-				{
-					int Event_angular_height;
-					switch (Additional_information_of_weather_2)
-					{
-					case 1:
-						Ok_Additional_information_of_weather_2 += "58";
-						Event_angular_height = Additional2_characteristic_2->SelectedIndex;
-						if (Event_angular_height == 0)Ok_Additional_information_of_weather_2 += "1";
-						else if (Event_angular_height == 1)Ok_Additional_information_of_weather_2 += "3";
-						else Ok_Additional_information_of_weather_2 += "7";
-						Ok_Additional_information_of_weather_2 +=
-							Convert::ToString(Additional2_characteristic_3->SelectedIndex);
-						break;
-					case 2:
-						Ok_Additional_information_of_weather_2 += "59";
-						Event_angular_height = Additional2_characteristic_2->SelectedIndex;
-						Cloud_travel_speed = Convert::ToInt32(Additional2_characteristic_4->Text);
-						if (Event_angular_height == 0)
-							if (Cloud_travel_speed < 3)Ok_Additional_information_of_weather_2 += "0";
-							else if (Cloud_travel_speed < 8)Ok_Additional_information_of_weather_2 += "1";
-							else if (Cloud_travel_speed < 13)Ok_Additional_information_of_weather_2 += "2";
-							else if (Cloud_travel_speed < 18)Ok_Additional_information_of_weather_2 += "3";
-							else if (Cloud_travel_speed < 23)Ok_Additional_information_of_weather_2 += "4";
-							else if (Cloud_travel_speed < 28)Ok_Additional_information_of_weather_2 += "5";
-							else if (Cloud_travel_speed < 33)Ok_Additional_information_of_weather_2 += "6";
-							else if (Cloud_travel_speed < 39)Ok_Additional_information_of_weather_2 += "7";
-							else if (Cloud_travel_speed < 44)Ok_Additional_information_of_weather_2 += "8";
-							else Ok_Additional_information_of_weather_2 += "9";
-						if (Event_angular_height == 1)
-							if (Cloud_travel_speed < 9)Ok_Additional_information_of_weather_2 += "0";
-							else if (Cloud_travel_speed < 26)Ok_Additional_information_of_weather_2 += "1";
-							else if (Cloud_travel_speed < 45)Ok_Additional_information_of_weather_2 += "2";
-							else if (Cloud_travel_speed < 63)Ok_Additional_information_of_weather_2 += "3";
-							else if (Cloud_travel_speed < 82)Ok_Additional_information_of_weather_2 += "4";
-							else if (Cloud_travel_speed < 101)Ok_Additional_information_of_weather_2 += "5";
-							else if (Cloud_travel_speed < 119)Ok_Additional_information_of_weather_2 += "6";
-							else if (Cloud_travel_speed < 138)Ok_Additional_information_of_weather_2 += "7";
-							else if (Cloud_travel_speed < 156)Ok_Additional_information_of_weather_2 += "8";
-							else Ok_Additional_information_of_weather_2 += "9";
-						if (Event_angular_height == 2)
-							if (Cloud_travel_speed < 4)Ok_Additional_information_of_weather_2 += "0";
-							else if (Cloud_travel_speed < 15)Ok_Additional_information_of_weather_2 += "1";
-							else if (Cloud_travel_speed < 25)Ok_Additional_information_of_weather_2 += "2";
-							else if (Cloud_travel_speed < 35)Ok_Additional_information_of_weather_2 += "3";
-							else if (Cloud_travel_speed < 34)Ok_Additional_information_of_weather_2 += "4";
-							else if (Cloud_travel_speed < 55)Ok_Additional_information_of_weather_2 += "5";
-							else if (Cloud_travel_speed < 65)Ok_Additional_information_of_weather_2 += "6";
-							else if (Cloud_travel_speed < 75)Ok_Additional_information_of_weather_2 += "7";
-							else if (Cloud_travel_speed < 85)Ok_Additional_information_of_weather_2 += "8";
-							else Ok_Additional_information_of_weather_2 += "9";
-						Ok_Additional_information_of_weather_2 +=
-							Convert::ToString(Additional2_characteristic_3->SelectedIndex);
-						break;
-					default:
-						break;
-					}
-					Summary += "9";
-					Summary += Ok_Additional_information_of_weather_2;
-					Summary += " ";
-				}
+			String^ Str_Additional_information_of_weather_2 = Additional2_characteristic_1->Text;
+			String^ Ok_Additional2_characteristic_2 = Additional2_characteristic_2->Text;
+			String^ Ok_Additional2_characteristic_3 = Additional2_characteristic_3->Text;
+			String^ Ok_Additional2_characteristic_4 = Additional2_characteristic_4->Text;
+			Summary += Struct_9SРSPspsp_2(Str_Additional_information_of_weather_2, Ok_Additional2_characteristic_2, Ok_Additional2_characteristic_3, Ok_Additional2_characteristic_4);
 			
 			if (Speed_of_wind >= 10)
 			{

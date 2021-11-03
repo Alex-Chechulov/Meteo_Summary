@@ -20,4 +20,6 @@ String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, Stri
 
 String^ Struct_9SÐSPspsp(String^ Str_Additional_information_of_weather, String^ Str_Additional_characteristic_1, String^ Str_Additional_characteristic_2, String^ Str_Additional_characteristic_3);
 
+String^ Struct_9SÐSPspsp_2(String^ Str_Additional_information_of_weather_2, String^ Ok_Additional2_characteristic_2, String^ Ok_Additional2_characteristic_3, String^ Ok_Additional2_characteristic_4);
+
 #endif

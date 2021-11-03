@@ -372,3 +372,106 @@ String^ Struct_9SРSPspsp(String^ Str_Additional_information_of_weather, String^
 		return Summary;
 	}
 }
+String^ Struct_9SРSPspsp_2(String^ Str_Additional_information_of_weather_2, String^ Ok_Additional2_characteristic_2, String^ Ok_Additional2_characteristic_3, String^ Ok_Additional2_characteristic_4)
+{
+	String^ Summary;
+	int Additional_information_of_weather_2;
+	if (Str_Additional_information_of_weather_2 == "Отсутствует")Additional_information_of_weather_2 = 0;
+	else if (Str_Additional_information_of_weather_2 == "Местоположение максимальной концентрации облаков. угловая высота над линией горизонта (Eh) и направление, в котором наблюдается (Da)")Additional_information_of_weather_2 = 1;
+	else if (Str_Additional_information_of_weather_2 == "Скорость перемещения облаков (vp) и направление (Dp), откуда перемещаются облака")Additional_information_of_weather_2 = 2;
+
+	double Cloud_travel_speed;
+	String^ Ok_Additional_information_of_weather_2;
+
+	if (Additional_information_of_weather_2 != 0)
+	{
+		int Event_angular_height, Event_direction;
+		switch (Additional_information_of_weather_2)
+		{
+		case 1:
+			Ok_Additional_information_of_weather_2 += "58";
+			if (Ok_Additional2_characteristic_2 == "Очень низко")Event_angular_height = 0;
+			else if (Ok_Additional2_characteristic_2 == "Менее 30 град")Event_angular_height = 1;
+			else if (Ok_Additional2_characteristic_2 == "Более 30 град")Event_angular_height = 2;
+
+			if (Ok_Additional2_characteristic_3 == "На станции")Event_direction = 0;
+			else if (Ok_Additional2_characteristic_3 == "СВ")Event_direction = 1;
+			else if (Ok_Additional2_characteristic_3 == "В")Event_direction = 2;
+			else if (Ok_Additional2_characteristic_3 == "ЮВ")Event_direction = 3;
+			else if (Ok_Additional2_characteristic_3 == "Ю")Event_direction = 4;
+			else if (Ok_Additional2_characteristic_3 == "ЮЗ")Event_direction = 5;
+			else if (Ok_Additional2_characteristic_3 == "З")Event_direction = 6;
+			else if (Ok_Additional2_characteristic_3 == "СЗ")Event_direction = 7;
+			else if (Ok_Additional2_characteristic_3 == "С")Event_direction = 8;
+			else if (Ok_Additional2_characteristic_3 == "Все направления")Event_direction = 9;
+
+			if (Event_angular_height == 0)Ok_Additional_information_of_weather_2 += "1";
+			else if (Event_angular_height == 1)Ok_Additional_information_of_weather_2 += "3";
+			else Ok_Additional_information_of_weather_2 += "7";
+			Ok_Additional_information_of_weather_2 +=
+				Convert::ToString(Event_direction);
+			break;
+		case 2:
+			Ok_Additional_information_of_weather_2 += "59";
+			if (Ok_Additional2_characteristic_2 == "м/с")Event_angular_height = 0;
+			else if (Ok_Additional2_characteristic_2 == "км/ч")Event_angular_height = 1;
+			else if (Ok_Additional2_characteristic_2 == "узлы")Event_angular_height = 2;
+
+			if (Ok_Additional2_characteristic_3 == "На станции")Event_direction = 0;
+			else if (Ok_Additional2_characteristic_3 == "СВ")Event_direction = 1;
+			else if (Ok_Additional2_characteristic_3 == "В")Event_direction = 2;
+			else if (Ok_Additional2_characteristic_3 == "ЮВ")Event_direction = 3;
+			else if (Ok_Additional2_characteristic_3 == "Ю")Event_direction = 4;
+			else if (Ok_Additional2_characteristic_3 == "ЮЗ")Event_direction = 5;
+			else if (Ok_Additional2_characteristic_3 == "З")Event_direction = 6;
+			else if (Ok_Additional2_characteristic_3 == "СЗ")Event_direction = 7;
+			else if (Ok_Additional2_characteristic_3 == "С")Event_direction = 8;
+			else if (Ok_Additional2_characteristic_3 == "Все направления")Event_direction = 9;
+
+			Cloud_travel_speed = Convert::ToInt32(Ok_Additional2_characteristic_4);
+			if (Event_angular_height == 0)
+				if (Cloud_travel_speed < 3)Ok_Additional_information_of_weather_2 += "0";
+				else if (Cloud_travel_speed < 8)Ok_Additional_information_of_weather_2 += "1";
+				else if (Cloud_travel_speed < 13)Ok_Additional_information_of_weather_2 += "2";
+				else if (Cloud_travel_speed < 18)Ok_Additional_information_of_weather_2 += "3";
+				else if (Cloud_travel_speed < 23)Ok_Additional_information_of_weather_2 += "4";
+				else if (Cloud_travel_speed < 28)Ok_Additional_information_of_weather_2 += "5";
+				else if (Cloud_travel_speed < 33)Ok_Additional_information_of_weather_2 += "6";
+				else if (Cloud_travel_speed < 39)Ok_Additional_information_of_weather_2 += "7";
+				else if (Cloud_travel_speed < 44)Ok_Additional_information_of_weather_2 += "8";
+				else Ok_Additional_information_of_weather_2 += "9";
+			if (Event_angular_height == 1)
+				if (Cloud_travel_speed < 9)Ok_Additional_information_of_weather_2 += "0";
+				else if (Cloud_travel_speed < 26)Ok_Additional_information_of_weather_2 += "1";
+				else if (Cloud_travel_speed < 45)Ok_Additional_information_of_weather_2 += "2";
+				else if (Cloud_travel_speed < 63)Ok_Additional_information_of_weather_2 += "3";
+				else if (Cloud_travel_speed < 82)Ok_Additional_information_of_weather_2 += "4";
+				else if (Cloud_travel_speed < 101)Ok_Additional_information_of_weather_2 += "5";
+				else if (Cloud_travel_speed < 119)Ok_Additional_information_of_weather_2 += "6";
+				else if (Cloud_travel_speed < 138)Ok_Additional_information_of_weather_2 += "7";
+				else if (Cloud_travel_speed < 156)Ok_Additional_information_of_weather_2 += "8";
+				else Ok_Additional_information_of_weather_2 += "9";
+			if (Event_angular_height == 2)
+				if (Cloud_travel_speed < 4)Ok_Additional_information_of_weather_2 += "0";
+				else if (Cloud_travel_speed < 15)Ok_Additional_information_of_weather_2 += "1";
+				else if (Cloud_travel_speed < 25)Ok_Additional_information_of_weather_2 += "2";
+				else if (Cloud_travel_speed < 35)Ok_Additional_information_of_weather_2 += "3";
+				else if (Cloud_travel_speed < 34)Ok_Additional_information_of_weather_2 += "4";
+				else if (Cloud_travel_speed < 55)Ok_Additional_information_of_weather_2 += "5";
+				else if (Cloud_travel_speed < 65)Ok_Additional_information_of_weather_2 += "6";
+				else if (Cloud_travel_speed < 75)Ok_Additional_information_of_weather_2 += "7";
+				else if (Cloud_travel_speed < 85)Ok_Additional_information_of_weather_2 += "8";
+				else Ok_Additional_information_of_weather_2 += "9";
+			Ok_Additional_information_of_weather_2 +=
+				Convert::ToString(Event_direction);
+			break;
+		default:
+			break;
+		}
+		Summary += "9";
+		Summary += Ok_Additional_information_of_weather_2;
+		Summary += " ";
+	}
+
+	return Summary;
+}
