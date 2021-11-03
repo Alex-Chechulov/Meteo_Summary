@@ -18,4 +18,6 @@ String^ Struct_55SSS(String^ Ok_Duration_of_sunshine);
 
 String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, String^ Type_of_NGO);
 
+String^ Struct_9SÐSPspsp(String^ Str_Additional_information_of_weather, String^ Str_Additional_characteristic_1, String^ Str_Additional_characteristic_2, String^ Str_Additional_characteristic_3);
+
 #endif
