@@ -16,10 +16,14 @@ String^ Struct_4Esss(String^ Condition_of_snow, String^ Ok_Height_of_snow);
 
 String^ Struct_55SSS(String^ Ok_Duration_of_sunshine);
 
-String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, String^ Type_of_NGO);
+String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, String^ Type_of_NGO, int Ok_Number_of_clouds, int Height_of_cloud);
 
 String^ Struct_9SÐSPspsp(String^ Str_Additional_information_of_weather, String^ Str_Additional_characteristic_1, String^ Str_Additional_characteristic_2, String^ Str_Additional_characteristic_3);
 
 String^ Struct_9SÐSPspsp_2(String^ Str_Additional_information_of_weather_2, String^ Ok_Additional2_characteristic_2, String^ Ok_Additional2_characteristic_3, String^ Ok_Additional2_characteristic_4);
+
+String^ Struct_9SÐSPspsp_3(int Speed_of_wind);
+
+String^ Struct_9SÐSPspsp_4(int Current_of_weather);
 
 #endif

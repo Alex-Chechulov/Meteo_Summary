@@ -1674,7 +1674,7 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			String^ Measurements_of_NGO = NGO_measurements->Text;
 			String^ Number_of_NGO = NGO_number->Text;
 			String^ Type_of_NGO = NGO_type->Text;
-			Summary += Struct_8NsChshs(Measurements_of_NGO, Number_of_NGO, Type_of_NGO);
+			Summary += Struct_8NsChshs(Measurements_of_NGO, Number_of_NGO, Type_of_NGO, Ok_Number_of_clouds, Height_of_cloud);
 
 			//проверить всякий случай сводку 9 на случай включения(точно ли всегда когда нужна - включается?)
 			
@@ -1691,140 +1691,43 @@ private: System::Windows::Forms::TextBox^ Day_rainfall;
 			String^ Ok_Additional2_characteristic_4 = Additional2_characteristic_4->Text;
 			Summary += Struct_9SРSPspsp_2(Str_Additional_information_of_weather_2, Ok_Additional2_characteristic_2, Ok_Additional2_characteristic_3, Ok_Additional2_characteristic_4);
 			
-			if (Speed_of_wind >= 10)
-			{
-				Summary += "910";
-				Summary += Convert::ToString(Speed_of_wind);
-				Summary += " ";
-			}
+			Summary += Struct_9SРSPspsp_3(Speed_of_wind);
+			
 			//В период между сроками наблюдения(не получилось пока, тк нет выбора в срок или между сроками)
 			//Максимальная скорость ветра при порывах(ff) Nddff
 
-			switch (Current_of_weather)
-			{
-			case 41:
-			case 42:
-			case 43:
-			case 44:
-			case 45:
-			case 46:
-			case 47:
-			case 48:
-			case 49:
-				Summary += "960" + Convert::ToString(Current_of_weather);
-				Summary += " ";
-				break;
-			default:
-				break;
-			}
+			Summary += Struct_9SРSPspsp_4(Current_of_weather);
+
 
 			//Раздел 5
-									//Отличительная группа раздела 5
-			Summary += "555";
-			Summary += " ";
-
+			Summary += Struct_555();
 
 			//1EsnT'gT'g
-									//1 – отличительная цифра группы
-									//Е – состояние поверхности почвы при отсутствии снежного покрова 
-									//snT'gT'g – температура подстилающей поверхности в срок наблюдения 
-									//sn – знак температуры
-									//T'gT'g – значение в градусах Цельсия с точностью до одного градуса
-			int Temperature_of_soil = Convert::ToInt32(Soil_temperature->Text);
-			String^ Sign = "0";
-			if (Temperature_of_soil < 0) {
-				Sign = "1";
-				Temperature_of_soil = -Temperature_of_soil;
-			}
-
-			Summary += "1";
-			Summary+= Ok_Condition_of_soil_surfase;
-			if (Temperature_of_soil < 10.0) Summary += Sign + "0" + Convert::ToString(Temperature_of_soil);
-			else Summary += Sign + Convert::ToString(Temperature_of_soil);
-			Summary += " ";
-
+			String^ Ok_Temperature_of_soil = Soil_temperature->Text;
+			Summary += Struct_1EsnTgTg(Ok_Temperature_of_soil, Ok_Condition_of_soil_surfase);
 
 			//5snT24T24T24
-									//5 – отличительная цифра группы
-									//snT24T24T24 – средняя температура воздуха за прошедшие сутки, заканчивающиеся в срок передачи группы
-									//sn – знак температуры
-									//T24T24T24 – значение в градусах Цельсия с точностью до десятых долей градуса
-			double Average_of_air_temperature = Convert::ToDouble(Air_temperature_average->Text);
-			Sign = "0";
-			if (Average_of_air_temperature < 0) {
-				Sign = "1";
-				Average_of_air_temperature = -Average_of_air_temperature;
-			}
-
-			Summary += "5";
-			if (Average_of_air_temperature < 1.0) Summary += Sign + "0" + "0" + Convert::ToString(Average_of_air_temperature * 10.0);
-			else if (Average_of_air_temperature < 10.0) Summary += Sign + "0" + Convert::ToString(Average_of_air_temperature * 10.0);
-			else Summary += Sign + Convert::ToString(Average_of_air_temperature * 10.0);
-			Summary += " ";
+			String^ Ok_Average_of_air_temperature = Air_temperature_average->Text;
+			Summary += Struct_5snT24T24T24(Ok_Average_of_air_temperature);
 
 			
 			//52snT2T2
-									//52 – отличительные цифры группы
-									//snT2T2 – минимальная температура воздуха за ночь на высоте 2 см от поверхности почвы
-									//sn – знак температуры
-									//T2T2 – значение в градусах Цельсия с точностью до одного градуса
-			int Min_air_temperature_for_night = Convert::ToInt32(Min_night_air_temperature->Text);
-			Sign = "0";
-			if (Min_air_temperature_for_night < 0) {
-				Sign = "1";
-				Min_air_temperature_for_night = -Min_air_temperature_for_night;
-			}
-
-			Summary += "52";
-			if (Min_air_temperature_for_night < 10.0) Summary += Sign + "0" + Convert::ToString(Min_air_temperature_for_night);
-			else Summary += Sign + Convert::ToString(Min_air_temperature_for_night);
-			Summary += " ";
+			String^ Ok_Min_air_temperature_for_night = Min_night_air_temperature->Text;
+			Summary += Struct_52snT2T2(Ok_Min_air_temperature_for_night);
 
 
 			//530f12f12
-									//530 – отличительные цифры группы
-									//f12f12 – максимальная скорость ветра при порывах за прошедшие полусутки, заканчивающиеся в срок передачи группы
-			int Maximum_of_wind_speed = Convert::ToInt32(Wind_speed_maximum->Text);
-			
-			Wind_speed_maximum;
-			Summary += "530";
-			if (Maximum_of_wind_speed < 10)
-				Summary += "0" + Convert::ToString(Maximum_of_wind_speed);
-			else Summary += Convert::ToString(Maximum_of_wind_speed);
-			Summary += " ";
+			String^ Ok_Maximum_of_wind_speed = Wind_speed_maximum->Text;
+			Summary += Struct_530f12f12(Ok_Maximum_of_wind_speed);
 
 
 			//7R24R24R24/
-									//7 – отличительная цифра группы
-									//R24R24R24 – количество осадков, выпавших за сутки
-									//  / – косая черта (ставится обязательно, чтобы группа была пятизначной, как все остальные)
-			double Rainfall_per_day1 = Convert::ToDouble(Day_rainfall->Text);
-			double Rainfall_per_day = Rainfall_per_day1;
-			if (Rainfall_per_day < 1)Rainfall_per_day = Rainfall_per_day * 10 + 990;
-			else if (Rainfall_per_day <= 989)Rainfall_per_day = (int)Rainfall_per_day;
-			else if (Rainfall_per_day > 989)Rainfall_per_day = 989;
-
-			
-			Summary += "7";
-			if (Rainfall_per_day < 10)Summary += "00" + Convert::ToString(Rainfall_per_day);
-			else if (Rainfall_per_day < 100)Summary += "0" + Convert::ToString(Rainfall_per_day);
-			else Summary += Convert::ToString(Rainfall_per_day);
-			Summary += "/ ";
+			String^ Ok_Rainfall_per_day = Day_rainfall->Text;
+			Summary += Struct_7R24R24R24(Ok_Rainfall_per_day);
 
 
 			//88R24R24R24
-									//88 – отличительные цифры группы
-									//R24R24R24 – количество осадков за сутки, составляющее 30 мм и более
-
-			if (Rainfall_per_day1 >= 30) 
-			{
-				Summary += "88";
-				if (Rainfall_per_day < 100)Summary += "0" + Convert::ToString(Rainfall_per_day);
-				else Summary += Convert::ToString(Rainfall_per_day);
-				Summary += " ";
-			}
-			
-
+			Summary += Struct_88R24R24R24();
 
 
 

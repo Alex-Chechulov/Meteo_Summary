@@ -1,5 +1,4 @@
 ﻿#include "Section_3.h"
-#include "Section_1.h"
 //Раздел 3
 									//Отличительная группа раздела 3
 String^ Struct_333()
@@ -152,7 +151,7 @@ String^ Struct_55SSS(String^ Ok_Duration_of_sunshine)
 									//характеристики облачности того слоя или той облачной массы, высота которых сообщена на месте hshs
 									//Ns – количество облачности
 									//C − форма облаков
-String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, String^ Type_of_NGO)
+String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, String^ Type_of_NGO, int Ok_Number_of_clouds, int Height_of_cloud)
 {
 	String^ Summary;
 	if (Ok_Number_of_clouds != 0 && Ok_Number_of_clouds != 9 && Ok_Number_of_clouds != 10)
@@ -198,7 +197,8 @@ String^ Struct_8NsChshs(String^ Measurements_of_NGO, String^ Number_of_NGO, Stri
 			else Summary += "/";
 			if (Ok_Type_of_NGO < 10)Summary += Convert::ToString(Ok_Type_of_NGO);
 			else Summary += "/";
-			Summary += Convert::ToString(Height_of_NGO);
+			if (Height_of_NGO < 10)Summary += "0" + Convert::ToString(Height_of_NGO);
+			else Summary += Convert::ToString(Height_of_NGO);
 			Summary += " ";
 		}
 	}
@@ -513,5 +513,38 @@ String^ Struct_9SРSPspsp_2(String^ Str_Additional_information_of_weather_2, Str
 		Summary += " ";
 	}
 
+	return Summary;
+}
+String^ Struct_9SРSPspsp_3(int Speed_of_wind)
+{
+	String^ Summary;
+	if (Speed_of_wind >= 10)
+	{
+		Summary += "910";
+		Summary += Convert::ToString(Speed_of_wind);
+		Summary += " ";
+	}
+	return Summary;
+}
+String^ Struct_9SРSPspsp_4(int Current_of_weather)
+{
+	String^ Summary;
+	switch (Current_of_weather)
+	{
+	case 41:
+	case 42:
+	case 43:
+	case 44:
+	case 45:
+	case 46:
+	case 47:
+	case 48:
+	case 49:
+		Summary += "960" + Convert::ToString(Current_of_weather);
+		Summary += " ";
+		break;
+	default:
+		break;
+	}
 	return Summary;
 }
